@@ -154,3 +154,39 @@ int main()
 
     return 0;
 }
+
+// ABC047A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int candy[3];
+
+    for (int i = 0; i < 3; i++) {
+        cin >> candy[i];
+    }
+
+    sort(candy, candy + 3);
+
+    if ((candy[0] + candy[1]) == candy[3])
+    {
+        cout << "YES " << endl;
+    } else 
+    {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
