@@ -174,18 +174,88 @@ int main()
 {
     int candy[3];
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < SIZE_OF_ARRAY(candy); i++) {
         cin >> candy[i];
     }
 
-    sort(candy, candy + 3);
+    sort(candy, candy + SIZE_OF_ARRAY(candy));
 
-    if ((candy[0] + candy[1]) == candy[3])
+    if ((candy[0] + candy[1]) == candy[2])
     {
-        cout << "YES " << endl;
+        cout << "Yes " << endl;
     } else 
     {
-        cout << "NO" << endl;
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+
+// ABC048A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    string a, s, c;
+
+    cin >> a >> s >> c;
+
+    cout << "A" << s[0] << "C" << endl;
+
+    return 0;
+}
+
+// ABC049A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    char c;
+
+    cin >> c;
+
+    switch (c) {
+        case 'a':
+            cout << "vowel" << endl;
+            break;
+        case 'e':
+            cout << "vowel" << endl;
+            break;
+        case 'i':
+            cout << "vowel" << endl;
+            break;
+        case 'o':
+            cout << "vowel" << endl;
+            break;
+        case 'u':
+            cout << "vowel" << endl;
+            break;
+        default :
+            cout << "consonant" << endl;
     }
 
     return 0;
