@@ -260,3 +260,108 @@ int main()
 
     return 0;
 }
+
+// ABC050A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    long int a, b, ans;
+    char ob;
+
+    cin >> a >> ob >> b;
+
+    if (ob == '+') 
+    {
+        ans = a + b;
+    }
+    else if (ob == '-')
+    {
+        ans = a - b;
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
+
+// ABC051A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    string s;
+
+    cin >> s;
+
+    cout << regex_replace(s, regex(","), " ") << endl;
+
+    return 0;
+}
+
+// ABC052A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B, C, D;
+    int s1, s2;
+
+    cin >> A >> B >> C >> D;
+
+    s1 = A * B;
+    s2 = C * D;
+
+    if (s1 > s2) 
+    {
+        cout << s1 << endl;
+    }
+    else if (s2 > s1)
+    {
+        cout << s2 << endl;
+    }
+    else if (s1 == s2)
+    {
+        cout << s1 << endl;
+    }
+
+    return 0;
+}
