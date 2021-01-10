@@ -23,6 +23,55 @@ int main()
     return 0;
 }
 
+// ABC043B
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    string s, t;
+
+    cin >> s;
+
+    for (int i = 0; i < s.size(); i++)
+    {
+        switch (s[i])
+        {
+        case '0':
+            t.push_back('0');
+            break;
+        case '1':
+            t.push_back('1');
+            break;
+        case 'B':
+            if (t.empty()) {
+                break;
+            } else {
+                t.pop_back();
+                break;
+            }
+        default:
+            break;
+        }
+    }
+
+    cout << t << endl;
+
+    return 0;
+}
+
 // ABC044B
 #include <iostream>
 #include <cstring>
