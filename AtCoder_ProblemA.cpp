@@ -365,3 +365,104 @@ int main()
 
     return 0;
 }
+
+// ABC053A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int x;
+
+    cin >> x;
+
+    if (x < 1200) {
+        cout << "ABC" << endl;
+    } else {
+        cout << "ARC" << endl;
+    }
+
+    return 0;
+}
+
+// ABC054A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B;
+    string winner;
+
+    cin >> A >> B;
+
+    if ((A > B) && (B != 1)) {
+        winner = "Alice";
+    } else if ((B > A) && (A != 1)) {
+        winner = "Bob";
+    } else if ((B > A) && (A == 1)) {
+        winner = "Alice";
+    } else if ((A > B) && (B == 1)) {
+        winner = "Bob";
+    } else if (A == B) {
+        winner = "Draw";
+    }
+
+    cout << winner << endl;
+
+    return 0;
+}
+
+// ABC055A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int N, x, y;
+
+    cin >> N;
+
+    x = 800 * N;
+    y = 200 * (N / 15);
+
+    cout << x - y << endl;
+
+    return 0;
+}
