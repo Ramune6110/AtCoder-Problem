@@ -110,3 +110,36 @@ int main()
     cout << "Yes" << endl;
     return 0;
 }
+
+// ABC045B
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <map>
+#include <stack>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int N, K;
+
+    cin >> N >> K;
+
+    long int ans = K;
+    for (int i = 2; i <= N; i++) {
+        ans *= K - 1;
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
