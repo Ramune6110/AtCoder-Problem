@@ -466,3 +466,135 @@ int main()
 
     return 0;
 }
+
+// ABC056A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    char a, b;
+
+    cin >> a >> b;
+
+    if (a == 'H' && b == 'H') {
+        cout << 'H' << endl;
+    } else if (a == 'H' && b == 'D') {
+        cout << 'D' << endl;
+    } else if (a == 'D' && b == 'H') {
+        cout << 'D' << endl;
+    } else if (a == 'D' && b == 'D') {
+        cout << 'H' << endl;
+    }
+
+    return 0;
+}
+
+// ABC057A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B;
+
+    cin >> A >> B;
+
+    int ans = A + B;
+
+    if (ans <= 23) {
+        cout << ans << endl;
+    } else if (ans >= 24) {
+        ans = ans - 24;
+        cout << ans << endl;
+    }
+
+    return 0;
+}
+
+// ABC058A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int a, b, c;
+
+    cin >> a >> b >> c;
+
+    if ((b - a) == (c - b)) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+
+// ABC059A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+
+    // 英子文字を大文字に変換する関数
+    transform(s1.begin(),s1.end(),s1.begin(),:: toupper);
+    transform(s2.begin(),s2.end(),s2.begin(),:: toupper);
+    transform(s3.begin(),s3.end(),s3.begin(),:: toupper);
+
+    cout << s1[0] << s2[0] << s3[0] << endl;
+
+    return 0;
+}
