@@ -111,7 +111,7 @@ int main()
     return 0;
 }
 
-// ABC045B
+// ABC046B
 #include <iostream>
 #include <cstring>
 #include <string>
@@ -140,6 +140,64 @@ int main()
     }
 
     cout << ans << endl;
+
+    return 0;
+}
+
+// ABC047B
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int W, H, N;
+    cin >> W >> H >> N;
+
+    int x[N], y[N], a[N];
+    for (int i = 0; i < N; i++) {
+        cin >> x[i] >> y[i] >> a[i];
+    }
+
+    int Width = 0;
+    int Height = 0;
+    for (int i = 0; i < N; i++) {
+        if (a[i] == 1) {
+            if (Width <= x[i]) {
+                Width = x[i];
+            }
+        } else if (a[i] == 2) {
+            if (W >= x[i]) {
+                W = x[i];
+            }
+        } else if (a[i] == 3) {
+            if (Height <= y[i]) {
+                Height = y[i];
+            }
+        } else if (a[i] == 4) {
+            if (H >= y[i]) {
+                H = y[i];
+            }
+        }
+    }
+
+    if ((W - Width > 0) && (H - Height > 0)) {
+        cout << (W - Width) * (H - Height)  << endl;
+    } else {
+        cout << 0 << endl;
+    }
 
     return 0;
 }
