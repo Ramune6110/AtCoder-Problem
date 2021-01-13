@@ -598,3 +598,113 @@ int main()
 
     return 0;
 }
+
+// ABC060A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    string A, B, C;
+
+    cin >> A >> B >> C;
+
+    if ((A[A.length() - 1] == B[0]) && (B[B.length() - 1] == C[0])) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+
+// ABC061A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B, C;
+    cin >> A >> B >> C;
+
+    if ((C >= A) && (C <= B)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+
+// ABC062A
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int number[2];
+    char ans[2];
+    cin >> number[0] >> number[1];
+
+    for (int i = 0; i < 2; i++) {
+        if ((number[i] == 1) || (number[i] == 3) || (number[i] == 5) || (number[i] == 7) || (number[i] == 8) || (number[i] == 10) || (number[i] == 12))
+        {
+            ans[i] = 'A';
+        } 
+        else if ((number[i] == 4) || (number[i] == 6) || (number[i] == 9) || (number[i] == 11))
+        {
+            ans[i] = 'B';
+        }
+        else if (number[i] == 2)
+        {
+            ans[i] = 'C';
+        }
+    }
+
+    if (ans[0] == ans[1]) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
