@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "cctype": "cpp",
+        "iosfwd": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "set": "cpp"
     }
 }

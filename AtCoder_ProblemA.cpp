@@ -708,3 +708,79 @@ int main()
 
     return 0;
 }
+
+// ABC063A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B;
+    cin >> A >> B;
+
+    if ((A + B) >= 10) {
+        cout << "error" << endl;
+    } else {
+        cout << A + B << endl;
+    }
+
+    return 0;
+}
+
+// ABC064A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int r, g, b;
+    string str;
+    cin >> r >> g >> b;
+
+    //  数値を文字列で連結
+    ostringstream ss;
+    ss << r << g << b;
+
+    str = str + ss.str();
+    
+    // 文字列を数値に変換
+    istringstream si;
+    si = istringstream(str);
+    int num = atoi(str.c_str());
+    si >> num;
+
+    if ((num % 4) == 0) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+    return 0;
+}
