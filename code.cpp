@@ -1,4 +1,4 @@
-// ABC0049B
+// ABC0067A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,26 +18,17 @@ using namespace std;
 
 int main()
 {
-    int H, W;
-    cin >> H >> W;
-    char pixel[H][W];
-    char longpixel[2 * H][W];
+    int A, B;
+    cin >> A >> B;
 
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            cin >> pixel[i][j];
-        }
-    }
-
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            cout << pixel[i][j];
-        }
-        cout << endl;
-        for (int j = 0; j < W; j++) {
-            cout << pixel[i][j];
-        }
-        cout << endl;
+    if (A % 3 == 0) {
+        cout << "Possible" << endl;
+    } else if (B % 3 == 0) {
+        cout << "Possible" << endl;
+    } else if ((A + B) % 3 == 0) {
+        cout << "Possible" << endl;
+    } else {
+        cout << "Impossible" << endl;
     }
 
     return 0;
