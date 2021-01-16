@@ -7,6 +7,7 @@
         "sstream": "cpp",
         "set": "cpp",
         "iostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "regex": "cpp"
     }
 }

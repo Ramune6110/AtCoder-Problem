@@ -1,4 +1,4 @@
-// ABC0067A
+// ABC050B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,17 +18,30 @@ using namespace std;
 
 int main()
 {
-    int A, B;
-    cin >> A >> B;
+    int N;
+    cin >> N;
 
-    if (A % 3 == 0) {
-        cout << "Possible" << endl;
-    } else if (B % 3 == 0) {
-        cout << "Possible" << endl;
-    } else if ((A + B) % 3 == 0) {
-        cout << "Possible" << endl;
-    } else {
-        cout << "Impossible" << endl;
+    vector<int> T(N);
+    for (int i = 1; i <= N; i++) {
+        cin >> T[i - 1];
+    }
+
+    int M;
+    cin >> M;
+
+    vector<int> P(M), X(M);
+    for (int i = 1; i <= M; i++) {
+        cin >> P[i - 1] >> X[i - 1];
+    }
+
+    int temp, index;
+    for (int i = 1; i <= M; i++) {
+        index    = P[i - 1] - 1;
+        temp     = T[index];
+        T[index] = X[i - 1];
+        int sum  = accumulate(T.begin(), T.end(), 0);
+        cout << sum << endl;
+        T[index] = temp;
     }
 
     return 0;
