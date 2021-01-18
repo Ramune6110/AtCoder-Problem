@@ -1,4 +1,4 @@
-// ABC071A
+// ABC053B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,14 +18,25 @@ using namespace std;
 
 int main()
 {
-    int x, a, b;
-    cin >> x >> a >> b;
+    string s;
+    cin >> s;
 
-    if (abs(x - a) < abs(x - b)) {
-        cout << "A" << endl;
-    } else if (abs(x - a) > abs(x - b)) {
-        cout << "B" << endl;
+    long int  minA = 200000, maxZ = 0;
+    for (long int i = 0; i < s.length(); i++) {
+        if (s[i] == 'A') {
+            if (minA > i) {
+                minA = i;
+            }
+        }
+
+        if (s[i] == 'Z') {
+            if (maxZ < i) {
+                maxZ = i;
+            }
+        }
     }
+
+    cout << (maxZ - minA + 1) << endl;
 
     return 0;
 }
