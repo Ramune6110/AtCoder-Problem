@@ -1,4 +1,4 @@
-// ABC053B
+// ABC073A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,25 +18,20 @@ using namespace std;
 
 int main()
 {
-    string s;
-    cin >> s;
+    int N;
+    cin >> N;
 
-    long int  minA = 200000, maxZ = 0;
-    for (long int i = 0; i < s.length(); i++) {
-        if (s[i] == 'A') {
-            if (minA > i) {
-                minA = i;
-            }
-        }
-
-        if (s[i] == 'Z') {
-            if (maxZ < i) {
-                maxZ = i;
-            }
-        }
+    // 数値の各桁の数を算出する
+    int dig[2];
+    for (int i = 0; i < 2; i++) {
+        dig[i] = N % 10;
+        N = N / 10;
     }
-
-    cout << (maxZ - minA + 1) << endl;
+    if ((dig[0] == 9) || (dig[1] == 9)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
