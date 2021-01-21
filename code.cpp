@@ -1,4 +1,4 @@
-// ABC067B
+// ABC073B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,19 +18,19 @@ using namespace std;
 
 int main()
 {   
-    int N, K;
-    cin >> N >> K;
+    int N;
+    cin >> N;
 
-    int l[N];
-    for (int i = 1; i <= N; i++) {
-        cin >> l[i - 1];
+    int l[N], r[N];
+    for (int i = 1; i<= N; i++) {
+        cin >> l[i - 1] >> r[i - 1];
     }
 
-    sort(l, l + SIZE_OF_ARRAY(l));
-
+    int num = 0;
     int sum = 0;
-    for (int i = 1; i <= K; i++) {
-        sum = sum + l[SIZE_OF_ARRAY(l) - i];
+    for (int i = 1; i <= N; i++) {
+        num = abs(l[i - 1] - r[i - 1]) + 1;
+        sum = sum + num;
     }
 
     cout << sum << endl;
