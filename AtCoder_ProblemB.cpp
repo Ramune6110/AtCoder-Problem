@@ -644,3 +644,38 @@ int main()
     
     return 0;
 }
+
+// ABC064B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{   
+    int N;
+    cin >> N;
+
+    int a[N];
+    for (int i = 1; i <= N; i++) {
+        cin >> a[i - 1];
+    }
+
+    sort(a, a + N);
+
+    cout << abs(a[0] - a[N - 1]) << endl;
+
+    return 0;
+}
