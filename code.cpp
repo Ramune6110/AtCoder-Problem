@@ -1,4 +1,4 @@
-// ABC073A
+// ABC075A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,19 +18,15 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int A, B, C;
+    cin >> A >> B >> C;
 
-    // 数値の各桁の数を算出する
-    int dig[2];
-    for (int i = 0; i < 2; i++) {
-        dig[i] = N % 10;
-        N = N / 10;
-    }
-    if ((dig[0] == 9) || (dig[1] == 9)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    if (A == B) {
+        cout << C << endl;
+    } else if (B == C) {
+        cout << A << endl;
+    } else if (C == A) {
+        cout << B << endl;
     }
 
     return 0;
