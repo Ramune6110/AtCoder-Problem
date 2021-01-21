@@ -9,6 +9,7 @@
         "iostream": "cpp",
         "cmath": "cpp",
         "regex": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cstdlib": "cpp"
     }
 }
