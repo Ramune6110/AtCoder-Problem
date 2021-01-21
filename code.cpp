@@ -1,4 +1,4 @@
-// ABC073B
+// ABC075B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,22 +18,30 @@ using namespace std;
 
 int main()
 {   
-    int N;
-    cin >> N;
-
-    int l[N], r[N];
-    for (int i = 1; i<= N; i++) {
-        cin >> l[i - 1] >> r[i - 1];
+    int H, W;
+    cin >> H >> W;
+    vector<string> V(H);
+    for (int i = 0; i < H; i++) {
+        cin >> V.at(i);
     }
 
-    int num = 0;
-    int sum = 0;
-    for (int i = 1; i <= N; i++) {
-        num = abs(l[i - 1] - r[i - 1]) + 1;
-        sum = sum + num;
+    for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+            if (V.at(i).at(j) == '#') continue;
+            int count = 0;
+            for (int k = i - 1; k < i + 2; k++) {
+                for (int l = j - 1; l < j + 2; l++) {
+                    if (k < 0 || l < 0 || k > H - 1 || l > W - 1 || (k == i && l == j)) continue;
+                    if (V.at(k).at(l) == '#') count++;
+                }
+            }
+            V.at(i).at(j) = count + '0';
+        }
     }
-
-    cout << sum << endl;
+    
+    for (int i = 0; i < H; i++) {
+        cout << V.at(i) << endl;
+    }
 
     return 0;
 }
