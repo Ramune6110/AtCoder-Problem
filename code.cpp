@@ -1,4 +1,4 @@
-// ABC075B
+// ABC077A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,29 +18,18 @@ using namespace std;
 
 int main()
 {   
-    int H, W;
-    cin >> H >> W;
-    vector<string> V(H);
-    for (int i = 0; i < H; i++) {
-        cin >> V.at(i);
-    }
+    char C[2][3];
 
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            if (V.at(i).at(j) == '#') continue;
-            int count = 0;
-            for (int k = i - 1; k < i + 2; k++) {
-                for (int l = j - 1; l < j + 2; l++) {
-                    if (k < 0 || l < 0 || k > H - 1 || l > W - 1 || (k == i && l == j)) continue;
-                    if (V.at(k).at(l) == '#') count++;
-                }
-            }
-            V.at(i).at(j) = count + '0';
+    for (int i = 1; i <= 2; i++) {
+        for (int j = 1; j <= 3; j++) {
+            cin >> C[i - 1][j - 1];
         }
     }
-    
-    for (int i = 0; i < H; i++) {
-        cout << V.at(i) << endl;
+
+    if ((C[0][0] == C[1][2]) && (C[0][1] == C[1][1]) && (C[0][2] == C[1][0])) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
     }
 
     return 0;
