@@ -1,4 +1,4 @@
-// ABC072B
+// ABC070B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,15 +18,19 @@ using namespace std;
 
 int main()
 {   
-    string S;
-    cin >> S;
+    int A, B, C, D;
+    cin >> A >> B >> C >> D;
 
-    for (int i = 0; i < S.size(); i++) {
-        if ((i % 2) == 0) {
-            cout << S[i];
-        }
+    int minsec;
+    int maxsec;
+    minsec = max(A, C);
+    maxsec = min(B, D);
+
+    if ((maxsec - minsec) > 0) {
+        cout << maxsec - minsec << endl;
+    } else if ((maxsec - minsec) <= 0) {
+        cout << 0 << endl;
     }
-    cout << endl;
 
     return 0;
 }
