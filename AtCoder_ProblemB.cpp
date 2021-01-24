@@ -759,6 +759,101 @@ int main()
     return 0;
 }
 
+// ABC068B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int count(int num);
+
+int main()
+{   
+    int N;
+    cin >> N;
+
+    int cnt = 0;
+    int maxcnt = 0;
+    int number = 1;
+    for (int i = 1; i <= N; i++) {
+        cnt = count(i);
+        
+        if (cnt > maxcnt) {
+            maxcnt = cnt;
+            number = i;
+        }
+    }
+
+    if (N == 1) {
+        cout << 1 << endl;
+    } else {
+        cout << number << endl;
+    }
+
+    return 0;
+}
+
+// 2で割った回数を求める関数
+int count(int num)
+{
+    int cnt = 0;
+    while (num % 2 == 0) {
+        num = num / 2;
+        cnt++;
+    }
+
+    return cnt;
+}
+
+// ABC070B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{   
+    int A, B, C, D;
+    cin >> A >> B >> C >> D;
+
+    int minsec;
+    int maxsec;
+    minsec = max(A, C);
+    maxsec = min(B, D);
+
+    if ((maxsec - minsec) > 0) {
+        cout << maxsec - minsec << endl;
+    } else if ((maxsec - minsec) <= 0) {
+        cout << 0 << endl;
+    }
+
+    return 0;
+}
+
 // ABC072B
 #include <bits/stdc++.h>
 #include <iostream>
@@ -960,7 +1055,7 @@ int main()
     return 0;
 }
 
-// ABC070B
+// ABC079B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -978,81 +1073,21 @@ int main()
 
 using namespace std;
 
-int main()
-{   
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
-
-    int minsec;
-    int maxsec;
-    minsec = max(A, C);
-    maxsec = min(B, D);
-
-    if ((maxsec - minsec) > 0) {
-        cout << maxsec - minsec << endl;
-    } else if ((maxsec - minsec) <= 0) {
-        cout << 0 << endl;
-    }
-
-    return 0;
-}
-
-// ABC068B
-#include <bits/stdc++.h>
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <regex>
-#include <cstdio>
-#include <algorithm>
-#include <cstdlib>
-#include <cctype>
-#include <cmath>
-#include <vector>
-#include <set>
-
-#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
-
-using namespace std;
-
-int count(int num);
-
-int main()
-{   
+int main() 
+{
     int N;
     cin >> N;
 
-    int cnt = 0;
-    int maxcnt = 0;
-    int number = 1;
-    for (int i = 1; i <= N; i++) {
-        cnt = count(i);
-        
-        if (cnt > maxcnt) {
-            maxcnt = cnt;
-            number = i;
-        }
+    long int L[N];
+    L[0] = 2;
+    L[1] = 1;
+    for (int i = 2; i <= N; i++) {
+        L[i] = L[i - 1] + L[i - 2];
     }
 
-    if (N == 1) {
-        cout << 1 << endl;
-    } else {
-        cout << number << endl;
-    }
+    cout << L[N] << endl;
 
     return 0;
-}
-
-// 2で割った回数を求める関数
-int count(int num)
-{
-    int cnt = 0;
-    while (num % 2 == 0) {
-        num = num / 2;
-        cnt++;
-    }
-
-    return cnt;
 }
 
 // ABC081B
@@ -1115,4 +1150,58 @@ bool divide_by_two(int A[], int N) {
     }
 
     return flag;
+}
+
+// ABC083B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int digsum(int num);
+
+int main() 
+{
+    int N, A, B;
+    cin >> N >> A >> B;
+
+    int sum = 0;
+    int numsum = 0;
+    for (int i = 1; i <= N; i++) {
+        sum = digsum(i);
+
+        if ((sum >= A) && (sum <= B)) {
+            numsum = numsum + i;
+        }
+    }
+    
+    cout << numsum << endl;
+
+    return 0;
+}
+
+// 整数の各桁の数字とその和を出す関数
+int digsum(int num) 
+{
+    int dig = 0;
+    int sum = 0;
+    while (num) {
+        dig = num % 10;
+        sum = sum + dig;
+        num = num / 10;
+    }
+
+    return sum;
 }

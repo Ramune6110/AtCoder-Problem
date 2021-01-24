@@ -1,4 +1,4 @@
-// ABC056B
+// ABC083B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -16,24 +16,38 @@
 
 using namespace std;
 
+int digsum(int num);
+
 int main() 
 {
-    int W, a, b;
-    cin >> W >> a >> b;
+    int N, A, B;
+    cin >> N >> A >> B;
 
-    int A = a + W;
-    int B = b;
-    int C = a;
-    int D = b + W;
+    int sum = 0;
+    int numsum = 0;
+    for (int i = 1; i <= N; i++) {
+        sum = digsum(i);
 
-    if (A < B) {
-        cout << B - A << endl;
-    } else if (C > D) {
-        cout << C -D << endl;
-    } else if ((A > B) || (C < D) || (A == B) || (C == D)) {
-        cout << 0 << endl;
+        if ((sum >= A) && (sum <= B)) {
+            numsum = numsum + i;
+        }
     }
+    
+    cout << numsum << endl;
 
     return 0;
 }
 
+// 整数の各桁の数字とその和を出す関数
+int digsum(int num) 
+{
+    int dig = 0;
+    int sum = 0;
+    while (num) {
+        dig = num % 10;
+        sum = sum + dig;
+        num = num / 10;
+    }
+
+    return sum;
+}
