@@ -720,6 +720,39 @@ int main()
     return 0;
 }
 
+// ABC072B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{   
+    string S;
+    cin >> S;
+
+    for (int i = 0; i < S.size(); i++) {
+        if ((i % 2) == 0) {
+            cout << S[i];
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
+
 // ABC073B
 #include <bits/stdc++.h>
 #include <iostream>
@@ -804,6 +837,86 @@ int main()
     for (int i = 0; i < H; i++) {
         cout << V.at(i) << endl;
     }
+
+    return 0;
+}
+
+// ABC076B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{   
+    int N, K;
+    cin >> N >> K;
+
+    int ans = 1;
+    for (int i = 1; i <= N; i++) {
+        if ((ans * 2) > (ans + K)) {
+            ans = ans + K;
+        } else if ((ans * 2) < (ans + K)) {
+            ans *= 2;
+        } else if ((ans * 2) == (ans + K)) {
+            ans = ans + K;
+        }
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
+
+// ABC077B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{   
+    long int N;
+    cin >> N;
+
+    long int ans;
+    for (long int i = 1; i <= N; i++) {
+        if ((i * i) < N) {
+
+        } else if ((i * i) == N) {
+            ans = N;
+            break;
+        } else if ((i * i) > N) {
+            ans = (i - 1) * (i - 1);
+            break;
+        }
+    }
+
+    cout << ans << endl;
 
     return 0;
 }

@@ -1,4 +1,4 @@
-// ABC077A
+// ABC072B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,19 +18,15 @@ using namespace std;
 
 int main()
 {   
-    char C[2][3];
+    string S;
+    cin >> S;
 
-    for (int i = 1; i <= 2; i++) {
-        for (int j = 1; j <= 3; j++) {
-            cin >> C[i - 1][j - 1];
+    for (int i = 0; i < S.size(); i++) {
+        if ((i % 2) == 0) {
+            cout << S[i];
         }
     }
-
-    if ((C[0][0] == C[1][2]) && (C[0][1] == C[1][1]) && (C[0][2] == C[1][0])) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
+    cout << endl;
 
     return 0;
 }
