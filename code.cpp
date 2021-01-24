@@ -1,4 +1,4 @@
-// ABC083B
+// ABC086B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -16,38 +16,47 @@
 
 using namespace std;
 
-int digsum(int num);
+int string_to_convert_num(int a, int b);
+bool is_squere(long long N);
 
-int main() 
+int main()
 {
-    int N, A, B;
-    cin >> N >> A >> B;
+    int a, b, num;
+    cin >> a >> b;
 
-    int sum = 0;
-    int numsum = 0;
-    for (int i = 1; i <= N; i++) {
-        sum = digsum(i);
+    num = string_to_convert_num(a, b);
 
-        if ((sum >= A) && (sum <= B)) {
-            numsum = numsum + i;
-        }
+    if (is_squere(num)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
-    
-    cout << numsum << endl;
 
     return 0;
 }
 
-// 整数の各桁の数字とその和を出す関数
-int digsum(int num) 
+// 平方数かどうかの判定
+bool is_squere(long long N) 
 {
-    int dig = 0;
-    int sum = 0;
-    while (num) {
-        dig = num % 10;
-        sum = sum + dig;
-        num = num / 10;
-    }
+    long long r = (long long)floor(sqrt((long double)N));  // 切り捨てした平方根
+    return (r * r) == N;
+}
 
-    return sum;
+// 文字列を連結して数値に変換
+int string_to_convert_num(int a, int b)
+{
+    //  数値を文字列で連結
+    ostringstream ss;
+    ss << a << b;
+
+    string str;
+    str = str + ss.str();
+    
+    // 文字列を数値に変換
+    istringstream si;
+    si = istringstream(str);
+    int num = atoi(str.c_str());
+    si >> num;
+
+    return num;
 }
