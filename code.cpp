@@ -1,4 +1,4 @@
-// ABC086B
+// ABC088B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -16,47 +16,30 @@
 
 using namespace std;
 
-int string_to_convert_num(int a, int b);
-bool is_squere(long long N);
-
 int main()
 {
-    int a, b, num;
-    cin >> a >> b;
+    int N;
+    cin >> N;
 
-    num = string_to_convert_num(a, b);
-
-    if (is_squere(num)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    int a[N];
+    for (int i = 1; i <= N; i++) {
+        cin >> a[i - 1];
     }
 
-    return 0;
-}
+    // 配列を降順にソートする
+    sort(a, a + SIZE_OF_ARRAY(a), greater<int>());
 
-// 平方数かどうかの判定
-bool is_squere(long long N) 
-{
-    long long r = (long long)floor(sqrt((long double)N));  // 切り捨てした平方根
-    return (r * r) == N;
-}
-
-// 文字列を連結して数値に変換
-int string_to_convert_num(int a, int b)
-{
-    //  数値を文字列で連結
-    ostringstream ss;
-    ss << a << b;
-
-    string str;
-    str = str + ss.str();
+    int alice = 0;
+    int bob = 0;
+    for (int i = 0; i < N; i++) {
+        if (i % 2 == 0) {
+            alice = alice + a[i];
+        } else {
+            bob = bob + a[i];
+        }
+    }
     
-    // 文字列を数値に変換
-    istringstream si;
-    si = istringstream(str);
-    int num = atoi(str.c_str());
-    si >> num;
+    cout << alice - bob << endl;
 
-    return num;
+    return 0;
 }
