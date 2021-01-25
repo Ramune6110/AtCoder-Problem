@@ -1,4 +1,4 @@
-// ABC088B
+// ABC080B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -16,30 +16,35 @@
 
 using namespace std;
 
+long int digsum(long int num);
+
 int main()
 {
-    int N;
+    long int N;
     cin >> N;
 
-    int a[N];
-    for (int i = 1; i <= N; i++) {
-        cin >> a[i - 1];
-    }
+    long int sum;
+    sum = digsum(N);
 
-    // 配列を降順にソートする
-    sort(a, a + SIZE_OF_ARRAY(a), greater<int>());
-
-    int alice = 0;
-    int bob = 0;
-    for (int i = 0; i < N; i++) {
-        if (i % 2 == 0) {
-            alice = alice + a[i];
-        } else {
-            bob = bob + a[i];
-        }
+    if (N % sum == 0) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
-    
-    cout << alice - bob << endl;
 
     return 0;
+}
+
+// 整数の各桁の数字とその和を出す関数
+long int digsum(long int num) 
+{
+    long int dig = 0;
+    long int sum = 0;
+    while (num) {
+        dig = num % 10;
+        sum = sum + dig;
+        num = num / 10;
+    }
+
+    return sum;
 }
