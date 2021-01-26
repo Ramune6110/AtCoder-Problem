@@ -1,4 +1,4 @@
-// ABC090B
+// ABC092B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,19 +18,16 @@ using namespace std;
 
 int main()
 {
-    int A, B;
-    cin >> A >> B;
+    long int A, B;
+    int K;
+    cin >> A >> B >> K;
 
-    int sum = 0;
-    for (int i = A; i <= B; i++) {
-        // 数値を文字列に変換
-        string str = to_string(i);
-        if ((str[0] == str[4]) && (str[1] == str[3])) {
-            sum++;
-        }
+    for (int i = A; i < A + K && i <= B; i++) {
+        cout << i << endl;
     }
-
-    cout << sum << endl;
+    for (int i = max(B - K + 1, A + K); i <= B; i++) {
+        cout << i << endl;
+    }
 
     return 0;
 }

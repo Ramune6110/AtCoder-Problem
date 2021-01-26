@@ -1402,3 +1402,74 @@ int main()
 
     return 0;
 }
+
+// ABC092B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int N, D, X;
+    cin >> N >> D >> X;
+
+    vector<int> A(N);
+    for (int i = 1; i <= N; i++) {
+        cin >> A.at(i - 1);
+    }
+
+    int sum = 0;
+    for (int i = 1; i <= N; i++) {
+        sum += 1 + (D - 1) / A.at(i - 1);
+    }
+
+    cout << sum + X << endl;
+
+    return 0;
+}
+// ABC093B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    long int A, B;
+    int K;
+    cin >> A >> B >> K;
+
+    for (int i = A; i < A + K && i <= B; i++) {
+        cout << i << endl;
+    }
+    for (int i = max(B - K + 1, A + K); i <= B; i++) {
+        cout << i << endl;
+    }
+
+    return 0;
+}
