@@ -1473,3 +1473,88 @@ int main()
 
     return 0;
 }
+
+// ABC094B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int N, M, X;
+    cin >> N >> M >> X;
+
+    vector<int> A(M);
+    for (int i = 1; i <= M; i++) {
+        cin >> A.at(i - 1);
+    }
+
+    int countlow = 0;
+    int counthigh = 0;
+    for (int i = 1; i <= M; i++) {
+        if (A.at(i - 1) < X) {
+            countlow++;
+        } else {
+            counthigh++;
+        }
+    }
+
+    cout << min(countlow, counthigh) << endl;
+
+    return 0;
+}
+
+// ABC096B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int num[3];
+    for (int i = 1; i <= 3; i++) {
+        cin >> num[i - 1];
+    }
+
+    int K;
+    cin >> K;
+
+    sort(num, num + 3);
+
+    int sum = 0;
+    for (int i = 1; i <= K; i++) {
+        num[2] = 2 * num[2];
+    }
+
+    sum = num[0] + num[1] + num[2];
+
+    cout << sum << endl;
+
+    return 0;
+}

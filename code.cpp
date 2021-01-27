@@ -1,4 +1,4 @@
-// ABC081A
+// ABC094B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,14 +18,25 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
+    int N, M, X;
+    cin >> N >> M >> X;
 
-    double ans;
-    // 四捨五入 : https://daeudaeu.com/kurisuke_kiriage_shisyagonyu/#i-5
-    ans = round(((double)a + (double)b) / 2);
+    vector<int> A(M);
+    for (int i = 1; i <= M; i++) {
+        cin >> A.at(i - 1);
+    }
 
-    cout << ans << endl;
+    int countlow = 0;
+    int counthigh = 0;
+    for (int i = 1; i <= M; i++) {
+        if (A.at(i - 1) < X) {
+            countlow++;
+        } else {
+            counthigh++;
+        }
+    }
+
+    cout << min(countlow, counthigh) << endl;
 
     return 0;
 }
