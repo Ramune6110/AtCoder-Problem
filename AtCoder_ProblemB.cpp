@@ -1558,3 +1558,52 @@ int main()
 
     return 0;
 }
+
+// ABC190B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int N;
+    long int S, D;
+    cin >> N >> S >> D;
+
+    long int X[N], Y[N];
+    for (int i = 1; i <= N; i++) {
+        cin >> X[i - 1] >> Y[i - 1];
+    }
+
+    long int sum = 0;
+    bool flag = false;
+    for (int i = 1; i <= N; i++) {
+        if ((X[i - 1] >= S) || (Y[i - 1] <= D)) {
+            flag = false;
+        } else {
+            flag = true;
+            break;
+        }
+    }
+
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}

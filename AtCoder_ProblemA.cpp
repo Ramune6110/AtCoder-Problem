@@ -1424,3 +1424,93 @@ int main()
 
     return 0;
 }
+
+// ABC190A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using namespace std;
+
+int main()
+{
+    int A, B, C;
+    cin >> A >> B >> C;
+
+    bool aoki = false;
+    bool takahashi = false;
+    if (C == 0) {
+        takahashi = true;
+    } else if (C == 1) {
+        aoki = true;
+    }
+
+    bool aokiwin = true;
+    bool takahashiwin = true;
+
+    if (takahashi == true) {
+        for(int i = 0; i < 10000; i++) {
+            if (A == 0) {
+                takahashiwin = false;
+                break;
+            }
+            A = A - 1;
+            if (A == 0) {
+                takahashiwin = false;
+                break;
+            }
+            if (B == 0) {
+                aokiwin = false;
+                break;
+            }
+            B = B - 1;
+            if (B == 0) {
+                aokiwin = false;
+                break;
+            }
+        }
+    }
+
+    if (aoki == true) {
+        for(int i = 0; i < 10000; i++) {
+            if (B == 0) {
+                aokiwin = false;
+                break;
+            }
+            B = B - 1;
+            if (B == 0) {
+                aokiwin = false;
+                break;
+            }
+            if (A == 0) {
+                takahashiwin = false;
+                break;
+            }
+            A = A - 1;
+            if (A == 0) {
+                takahashiwin = false;
+                break;
+            }
+        }
+    }
+
+    if (aokiwin == true) {
+        cout << "Aoki" << endl;
+    }
+    if (takahashiwin == true) {
+        cout << "Takahashi" << endl;
+    }
+
+    return 0;
+}
