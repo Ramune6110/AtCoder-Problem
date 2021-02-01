@@ -20,16 +20,41 @@ using namespace std;
 
 int main()
 {   
-    int X;
-    cin >> X;
+    int N, M;
+    cin >> N >> M;
 
-    // ある整数以下で最大のべき乗数を求める
-    int ans = 1;
-    for (int i = 2; i <= X; i++) {
-        for (int j = 2; j <= X; j++) {
-            if (pow(i, j) > X) break;
-            ans = max(ans, (int)pow(i, j));
+    vector<int> A(M), B(M);
+    rep(i, M) {
+        cin >> A[i] >> B[i];
+    }
+
+    int K;
+    cin >> K;
+    vector<int> C(K), D(K);
+    rep(i, K) {
+        cin >> C[i] >> D[i];
+    }
+
+    int ans = 0;
+    int k2 = 1 << K;
+    rep(s, k2) {
+        vector<int> dish(N + 1);
+        rep(i, K) {
+            if ((s >> i) & 1) {
+                dish[D[i]]++;
+            } else {
+                dish[C[i]]++;
+            }
         }
+
+        int now = 0;
+        rep(i, M) {
+            if (dish[A[i]] == 0) continue;
+            if (dish[B[i]] == 0) continue;
+            now++;
+        }
+
+        ans = max(ans, now);
     }
 
     cout << ans << endl;
