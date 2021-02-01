@@ -1425,6 +1425,38 @@ int main()
     return 0;
 }
 
+// ABC082A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{   
+    int a, b;
+    cin >> a >> b;
+
+    // 小数点切り上げ問題ceilを使う
+    // https://daeudaeu.com/kurisuke_kiriage_shisyagonyu/#i-8
+    cout << ceil((double)(a + b) / (double)2) << endl;
+
+    return 0;
+}
+
 // ABC190A
 #include <bits/stdc++.h>
 #include <iostream>

@@ -1,4 +1,4 @@
-// ABC147C
+// ABC097B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,75 +18,17 @@
 using ll = long long;
 using namespace std;
 
-//  bit全探索
 int main()
 {   
-    //  15人の関係性を有効グラフで表現
-    // 各nodeが取り得る値は
-    // 正直者 : 1
-    // 不親切 : 0
-    // 何も証言がない : -1
-    int g[15][15];
+    int X;
+    cin >> X;
 
-    int N;
-    cin >> N;
-    
-    // 全員証言がない状態で初期化
-    rep(i, N) {
-        rep(j, N) {
-            // 人iから人jへの証言を何も証言がない状態で初期化
-            g[i][j] = -1;
-        }
-    }
-
-    // 入力値0-14になるように調整している
-    rep(i, N) {
-        // 証言の個数
-        int A;
-        cin >> A;
-
-        rep(j, A) {
-            int x, y;
-            cin >> x >> y;
-            // 0-14にするためデクリメント
-            --x;
-            // 人iからxへの証言がy
-            g[i][x] =y;
-        }
-    }
-
-    int ans = 0;
-    // bit 全探索
-    // シフト演算子を使うと2^Nが簡単に計算出来る
-    int n2 = 1<<N; // 全てで2^N通り
-    rep(i, n2) {
-        // 0か1を入れる配列：初期化は0
-        vector<int> d(N);
-        rep(j, N) {
-            // iのj桁目が1であるか判定
-            // つまりi通り目のj番目の人の証言が1かどうかの判定
-            if (i>>j & 1) {
-                d[j] = 1;
-            }
-        }
-
-        bool flag = true;
-        rep(j, N) {
-            // i通り目のj番目の人の証言が正直だった場合
-            if (d[j]) {
-                // 人jから人kへの証言に矛盾がないかどうかを判定
-                // 矛盾(正直だといっているのにg[j][k]が1でない時)がある場合, flag = false
-                rep(k, N) {
-                    if (g[j][k] == -1) continue;
-                    if (g[j][k] != d[k]) flag = false;
-                }
-            }
-        }
-
-        if (flag) {
-            // __builtin_popcount(i)
-            // i通り目で1が立っている個数をカウントする関数
-            ans = max(ans, __builtin_popcount(i));
+    // ある整数以下で最大のべき乗数を求める
+    int ans = 1;
+    for (int i = 2; i <= X; i++) {
+        for (int j = 2; j <= X; j++) {
+            if (pow(i, j) > X) break;
+            ans = max(ans, (int)pow(i, j));
         }
     }
 
