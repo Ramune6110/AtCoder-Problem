@@ -1,4 +1,4 @@
-// ABC085B
+// ABC136B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,36 +18,39 @@
 using ll = long long;
 using namespace std;
 
+long int digsum(long int num);
+
 int main()
 {   
     int N;
     cin >> N;
 
-    vector<int> d(N);
-    rep(i, N) {
-        cin >> d[i];
-    }
-
-    sort(d.begin(), d.end());
-
-    int sum = 0;
-    rep(i, N) {
-        // sort処理
-        sort(d.begin(), d.end());
-        // 最後の要素にアクセス
-        // cout << d[d.size() - 1] << endl;
-        if ((d.size() > 0) && (d[d.size() - 1] > 0)) {
-            // 最も値の大きい要素を削除
-            vector<int>::iterator e = remove(d.begin(), d.end(), d[d.size() - 1]);
-            // 不要な要素を消去
-            d.erase(e, d.end());
-            sum++;
-        } else {
-            break;
+    int ans = 0;
+    int count = 0;
+    for (int i = 1; i <= N; i++) {
+        ans = digsum(i);
+        if (ans % 2 == 1) {
+            count++;
         }
     }
 
-    cout << sum << endl;
+    cout <<  count << endl;
 
     return 0;
+}
+
+// ある整数の桁数を返す関数(各桁の和も算出)
+long int digsum(long int num) 
+{
+    long int dig = 0;
+    long int sum = 0;
+    long int count = 0;
+    while (num) {
+        dig = num % 10;
+        sum = sum + dig;
+        num = num / 10;
+        count++;
+    }
+
+    return count;
 }
