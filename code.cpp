@@ -1,4 +1,4 @@
-// ABC097B
+// ABC085B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,44 +20,34 @@ using namespace std;
 
 int main()
 {   
-    int N, M;
-    cin >> N >> M;
+    int N;
+    cin >> N;
 
-    vector<int> A(M), B(M);
-    rep(i, M) {
-        cin >> A[i] >> B[i];
+    vector<int> d(N);
+    rep(i, N) {
+        cin >> d[i];
     }
 
-    int K;
-    cin >> K;
-    vector<int> C(K), D(K);
-    rep(i, K) {
-        cin >> C[i] >> D[i];
-    }
+    sort(d.begin(), d.end());
 
-    int ans = 0;
-    int k2 = 1 << K;
-    rep(s, k2) {
-        vector<int> dish(N + 1);
-        rep(i, K) {
-            if ((s >> i) & 1) {
-                dish[D[i]]++;
-            } else {
-                dish[C[i]]++;
-            }
+    int sum = 0;
+    rep(i, N) {
+        // sort処理
+        sort(d.begin(), d.end());
+        // 最後の要素にアクセス
+        // cout << d[d.size() - 1] << endl;
+        if ((d.size() > 0) && (d[d.size() - 1] > 0)) {
+            // 最も値の大きい要素を削除
+            vector<int>::iterator e = remove(d.begin(), d.end(), d[d.size() - 1]);
+            // 不要な要素を消去
+            d.erase(e, d.end());
+            sum++;
+        } else {
+            break;
         }
-
-        int now = 0;
-        rep(i, M) {
-            if (dish[A[i]] == 0) continue;
-            if (dish[B[i]] == 0) continue;
-            now++;
-        }
-
-        ans = max(ans, now);
     }
 
-    cout << ans << endl;
+    cout << sum << endl;
 
     return 0;
 }
