@@ -1,4 +1,4 @@
-// ABC157C
+// ABC095C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -19,68 +19,19 @@
 using ll = long long;
 using namespace std;
 
-long int digcount(long int num);
-long int dignum(long int num, long int digits);
-
 int main()
 {   
-    int N, M;
-    cin >> N >> M;
+    int A, B, C, X, Y;
+    cin >> A >> B >> C >> X >> Y;
+
+    int sum = 0;
+    int ans = 1000000000;
+    for (int i = 0; i <= 100000; i++) {
+        sum = A * max(0, X - i) + B * max(0, Y - i) + C * (2 * i);
+        ans = min(ans, sum);
+    }
     
-    // 桁数を数値でその時とるべき値を文字で受け取る
-    vector<pair<int, char>> X(N);
-    rep(i, M) {
-        cin >> X[i].first >> X[i].second;
-    }
-
-    // 条件を満たすものがない場合-1を出力
-    int ans = -1;
-    rep(i, pow(10, N)) {
-        // 数値を文字に変換
-        string num = to_string(i);
-        if (num.size() < N) continue;
-        
-        bool flag = true;
-        rep(j, M) {
-            if (num[X[j].first - 1] != X[j].second) {
-                flag = false;
-                break;
-            }
-        }
-        
-        // i = 0から考えて一番最初に条件をクリアした数値が最小の数値なのでbreak
-        if (flag) {
-            ans = i;
-            break;
-        }
-    }
-
     cout << ans << endl;
 
     return 0;
-}
-
-// 各桁の値を算出
-long int dignum(long int num, long int digits) 
-{
-    long int dig = 0;
-
-    for (int i = 1; i <= digits; i++) {
-        dig = num % 10;
-        num = num / 10;
-    }
-
-    return dig;
-}
-
-// ある整数の桁数を返す関数
-long int digcount(long int num) 
-{
-    long int count = 0;
-    while (num) {
-        num = num / 10;
-        count++;
-    }
-
-    return count;
 }

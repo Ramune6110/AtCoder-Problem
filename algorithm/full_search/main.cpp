@@ -1,6 +1,9 @@
 // 全探索問題
+
+//**********************************************
 // 1. 問題文の通りに全探索すると解ける問題 
-// ABC068B, 105B, 133B, 136B
+// ABC068B, 106B, 133B, 136B
+//**********************************************
 
 // ABC068B
 #include <bits/stdc++.h>
@@ -58,52 +61,6 @@ int count(int num)
     }
 
     return cnt;
-}
-
-// ABC105B
-#include <bits/stdc++.h>
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <regex>
-#include <cstdio>
-#include <algorithm>
-#include <cstdlib>
-#include <cctype>
-#include <cmath>
-#include <vector>
-#include <set>
-
-#define rep(i, n) for (int i = 0; i < (n); ++i)
-#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
-
-using ll = long long;
-using namespace std;
-
-long int digsum(long int num);
-
-int main()
-{   
-    int N;
-    cin >> N;
-
-    bool flag = false;
-    for (int i = 0; i <= N; i = i + 4) {
-        for (int j = 0; j <= N; j = j + 7) {
-            if (i + j == N) {
-                flag = true;
-                break;
-            }
-        }
-    }
-
-    if (flag) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-
-    return 0;
 }
 
 // ABC106B
@@ -278,6 +235,57 @@ long int digsum(long int num)
     return count;
 }
 
+//**********************************************
+// 2. あり得るものを全通り試す
+// ABC105B, ABC157C
+//**********************************************
+
+// ABC105B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+long int digsum(long int num);
+
+int main()
+{   
+    int N;
+    cin >> N;
+
+    bool flag = false;
+    for (int i = 0; i <= N; i = i + 4) {
+        for (int j = 0; j <= N; j = j + 7) {
+            if (i + j == N) {
+                flag = true;
+                break;
+            }
+        }
+    }
+
+    if (flag) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+
 // ABC157C
 #include <bits/stdc++.h>
 #include <iostream>
@@ -363,4 +371,48 @@ long int digcount(long int num)
     }
 
     return count;
+}
+
+// 全探索の工夫パターン
+//**********************************************
+// 1. 既に分かっているものは探索しない
+// ABC095C,ABC112C
+//**********************************************
+
+// ABC095C
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{   
+    int A, B, C, X, Y;
+    cin >> A >> B >> C >> X >> Y;
+
+    int sum = 0;
+    int ans = 1000000000;
+    for (int i = 0; i <= 100000; i++) {
+        sum = A * max(0, X - i) + B * max(0, Y - i) + C * (2 * i);
+        ans = min(ans, sum);
+    }
+    
+    cout << ans << endl;
+
+    return 0;
 }
