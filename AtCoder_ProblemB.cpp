@@ -1672,6 +1672,52 @@ int main()
 using ll = long long;
 using namespace std;
 
+long int digsum(long int num);
+
+int main()
+{   
+    int N;
+    cin >> N;
+
+    bool flag = false;
+    for (int i = 0; i <= N; i = i + 4) {
+        for (int j = 0; j <= N; j = j + 7) {
+            if (i + j == N) {
+                flag = true;
+                break;
+            }
+        }
+    }
+
+    if (flag) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
+    return 0;
+}
+
+// ABC106B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
 bool solve(int num);
 
 int main()
