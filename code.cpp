@@ -1,4 +1,4 @@
-// ABC095C
+// ABC112C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -21,17 +21,5 @@ using namespace std;
 
 int main()
 {   
-    int A, B, C, X, Y;
-    cin >> A >> B >> C >> X >> Y;
-
-    int sum = 0;
-    int ans = 1000000000;
-    for (int i = 0; i <= 100000; i++) {
-        sum = A * max(0, X - i) + B * max(0, Y - i) + C * (2 * i);
-        ans = min(ans, sum);
-    }
     
-    cout << ans << endl;
-
-    return 0;
 }

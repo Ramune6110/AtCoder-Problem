@@ -1652,6 +1652,51 @@ int main()
     return 0;
 }
 
+// ABC099B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{   
+    int a, b;
+    cin >> a >> b;
+
+    int height_W = 0;
+    int height_E = 0;
+    for (int i = 1; i <= 999; i++) {
+        height_W = height_W + i;
+        height_E = height_W + (i + 1);
+
+        bool flag = false;
+        if ((b - a) == (height_E - height_W)) {
+            flag = true;
+        }
+
+        if (flag) break;
+    }
+
+    cout << (height_W - a) << endl;
+
+    return 0;
+}
+
 // ABC105B
 #include <bits/stdc++.h>
 #include <iostream>

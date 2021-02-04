@@ -416,3 +416,89 @@ int main()
 
     return 0;
 }
+
+// ABC112C
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{   
+    int N;
+    cin >> N;
+
+    vector<int> x(N), y(N), h(N);
+    rep(i, N) {
+        cin >> x[i] >> y[i] >> h[i];
+    }
+
+    // [0, 100]に座標があるのでMAXを定義
+    // 縦→横の順に全探索
+    int MAX = 100;
+    for (int posX = 0; posX <= 100; posX++) {
+        for (int posY = 0; posY <= MAX; posY++) {
+            // 頂上がどれくらいの高さであってほしいか
+            // 0以上は確定している時
+            // -1はまだ良く分からない時
+            // -2はダメだった時
+            int needH = -1;
+
+            for (int i = 0; i < N; i++) {
+                if (h[i] > 0) {
+                    // この頂点から見て、頂上がposX,posYの時に、どれくらいの高さがあってほしいかを求める
+                    int tmp = h[i] + abs(posX - x[i]) + abs(posY - y[i]);
+                    if (needH == -1) {
+                        needH = tmp;
+                    } else {
+                        if (needH != tmp) {
+                            needH = -2;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // ダメだったら次の場所を探す
+            if (needH == -2) continue;
+
+            for (int i = 0; i < N; i++) {
+                if (h[i] == 0) {
+                    // 高さが0の場合に矛盾していないか調べる
+                    int tmp = h[i] + abs(posX - x[i]) + abs(posY - y[i]);
+                    if (needH > tmp) {
+                        needH = -2;
+                        break;
+                    }
+                }
+            }
+            
+            // ダメだったら次の場所を探す
+            if (needH == -2) continue;
+
+            // 見つけたら答えを返す
+            cout << posX << " " << posY << " " << needH << endl;
+            return 0;
+        }
+    }
+}
+
+//**********************************************
+// 2. 探索の通り数を絞り込む
+// ABC057C
+//**********************************************
