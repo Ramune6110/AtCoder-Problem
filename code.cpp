@@ -1,4 +1,4 @@
-// ABC153C
+// ABC138C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -21,25 +21,23 @@ using namespace std;
 
 int main()
 {
-    int N, K;
-    cin >> N >> K;
+    int N;
+    cin >> N;
 
-    vector<ll> H(N);
+    vector<float> v(N);
     rep(i, N) {
-        cin >> H[i];
+        cin >> v[i];
     }
 
-    sort(H.begin(), H.end());
+    sort(v.begin(), v.end());
     
-    ll sum = 0;
-    if (N < K) {
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i < N - K; i++) {
-            sum += H[i];
-        }
-        cout << sum << endl;
+    float average = (v[0] + v[1]) / 2.0f;
+    
+    for (int i = 2; i < N; i++) {
+        average = (average + v[i]) / 2.0f;
     }
+
+    cout << average << endl;
 
     return 0;
-}
+} 

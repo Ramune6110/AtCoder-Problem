@@ -117,6 +117,50 @@ int main()
     }
 }
 
+// ABC138C
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    vector<float> v(N);
+    rep(i, N) {
+        cin >> v[i];
+    }
+
+    sort(v.begin(), v.end());
+    
+    float average = (v[0] + v[1]) / 2.0f;
+    
+    for (int i = 2; i < N; i++) {
+        average = (average + v[i]) / 2.0f;
+    }
+
+    cout << average << endl;
+
+    return 0;
+} 
+
 // ABC147C
 #include <bits/stdc++.h>
 #include <iostream>
@@ -345,6 +389,55 @@ long int digcount(long int num)
     }
 
     return count;
+}
+
+// ABC176C
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    vector<ll> A(N);
+    rep(i, N) {
+        cin >> A[i];
+    }
+    
+    ll sum = 0;
+    
+    for (int i = 0; i < N - 1; i++) {
+        if (A[i] == A[i + 1]) {
+            sum += 0;
+        } else if (A[i] > A[i + 1]) {
+            sum += A[i] - A[i + 1];
+            A[i + 1] = A[i + 1] + (A[i] - A[i + 1]);
+        } else if (A[i] < A[i + 1]) {
+            sum += 0;
+        }
+    }
+    
+    cout << sum << endl;
+
+    return 0;
 }
 
 // ABC190C
