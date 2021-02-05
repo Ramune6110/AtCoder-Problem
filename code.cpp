@@ -1,4 +1,4 @@
-// ABC112C
+// ABC153C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,6 +20,26 @@ using ll = long long;
 using namespace std;
 
 int main()
-{   
+{
+    int N, K;
+    cin >> N >> K;
+
+    vector<ll> H(N);
+    rep(i, N) {
+        cin >> H[i];
+    }
+
+    sort(H.begin(), H.end());
     
+    ll sum = 0;
+    if (N < K) {
+        cout << 0 << endl;
+    } else {
+        for (int i = 0; i < N - K; i++) {
+            sum += H[i];
+        }
+        cout << sum << endl;
+    }
+
+    return 0;
 }

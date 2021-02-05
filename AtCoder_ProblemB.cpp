@@ -1915,6 +1915,42 @@ long int digsum(long int num)
     return count;
 }
 
+// ABC160B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int X;
+    cin >> X;
+
+    int num500 = X / 500;
+    X = X - num500 * 500;
+    int num5 = X / 5;
+    X = X - num5 * 5;
+
+    cout << 1000 * num500 + 5 * num5 << endl;
+
+    return 0;
+}
+
 // ABC190B
 #include <bits/stdc++.h>
 #include <iostream>
