@@ -1,4 +1,4 @@
-// ABC145C
+// ABC150C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -19,39 +19,39 @@
 using ll = long long;
 using namespace std;
 
-double dist(double x1, double x2, double y1, double y2)
-{
-    return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-}
-
 int main()
 {
     int N;
     cin >> N;
 
-    vector<int> x(N), y(N);
+    vector<int> P(N), Q(N);
     rep(i, N) {
-        cin >> x[i] >> y[i];
+        cin >> P[i];
+    }
+    rep(i, N) {
+        cin >> Q[i];
     }
 
-    vector<int> p(N);
+    vector<int> order(N);
     rep(i, N) {
-        p[i] = i;
+        order[i] = i + 1;
     }
     
-    double length = 0;
-    double count = 0;
-
+    int count   = 0;
+    int p_count = 0;
+    int q_count = 0;
     do {
-        for (int i = 1; i < N; i++) {
-            length += dist(x[p[i]], x[p[i - 1]], y[p[i]], y[p[i - 1]]);
+        if (order == P) {
+            p_count = count;
         }
+        if (order == Q) {
+            q_count = count;
+        }
+        
         count++;
-    } while(next_permutation(p.begin(), p.end()));
-
-    double ans = length / count;
-
-    cout << fixed << setprecision(15) << ans << endl;
-
+    } while(next_permutation(order.begin(), order.end()));
+    
+    cout << abs(p_count - q_count) << endl;
+    
     return 0;
 } 
