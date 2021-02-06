@@ -1,4 +1,4 @@
-// ABC150C
+// ABC183C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -21,37 +21,34 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int N, K;
+    cin >> N >> K;
 
-    vector<int> P(N), Q(N);
+    vector<vector<int>> T(N, vector<int>(N));
     rep(i, N) {
-        cin >> P[i];
-    }
-    rep(i, N) {
-        cin >> Q[i];
+        rep(j, N) {
+            cin >> T[i][j];
+        }
     }
 
     vector<int> order(N);
     rep(i, N) {
-        order[i] = i + 1;
+        order[i] = i;
     }
-    
-    int count   = 0;
-    int p_count = 0;
-    int q_count = 0;
+
+    int sum = 0;
+    int count = 0;
     do {
-        if (order == P) {
-            p_count = count;
+        for (int i = 0; i < N; i++) {
+            sum += T[order[i]][order[(i + 1)%N]];
         }
-        if (order == Q) {
-            q_count = count;
+        if (sum == K) {
+            count++;
         }
-        
-        count++;
-    } while(next_permutation(order.begin(), order.end()));
+        sum = 0;
+    } while(next_permutation(order.begin() + 1, order.end()));
     
-    cout << abs(p_count - q_count) << endl;
+    cout << count << endl;
     
     return 0;
 } 
