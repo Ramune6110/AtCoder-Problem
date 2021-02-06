@@ -74,7 +74,7 @@ long int dignum(long int num, long int digits)
     return dig;
 }
 
-// ある整数の桁数を返す関数
+// ある整数の割れる回数を返す関数
 long int digcount(long int num) 
 {
     long int count = 0;

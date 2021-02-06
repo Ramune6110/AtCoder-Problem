@@ -1697,6 +1697,45 @@ int main()
     return 0;
 }
 
+// ABC100B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int D, N;
+    cin >> D >> N;
+    
+    // 100でD回割れるN番目の数
+    long int ans = pow(100, D) * N;
+    
+    // なんで？
+    if (N == 100) {
+        ans += pow(100, D);
+    }
+
+    cout << ans << endl;
+
+    return 0;
+} 
+
 // ABC105B
 #include <bits/stdc++.h>
 #include <iostream>
@@ -1800,6 +1839,64 @@ bool solve(int num)
 
     return flag;
 }
+
+// ABC123B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int N = 5;
+
+    vector<int> time(N);
+    rep(i, N) {
+        cin >> time[i];
+    }
+
+    vector<int> nexttime(N);
+    rep(i, N) {
+        if (time[i] % 10 == 0) {
+            nexttime[i] = time[i];
+        } else {
+            nexttime[i] = time[i] - time[i] % 10 + 10;
+        }
+    }
+    
+    int mintime = 1000000000;
+    rep(i, N) {
+        int sumtime = 0;
+        rep(j, N) {
+            if (i == j) {
+                sumtime += time[i];
+            } else {
+                sumtime += nexttime[j];
+            }
+        }
+        
+        mintime = min(mintime, sumtime);
+    }
+
+    cout << mintime << endl;
+
+    return 0;
+} 
 
 // ABC133B
 #include <bits/stdc++.h>

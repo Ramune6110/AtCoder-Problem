@@ -1,4 +1,4 @@
-// ABC138C
+// ABC057C
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -19,25 +19,41 @@
 using ll = long long;
 using namespace std;
 
+long int digsum(long int num);
+
 int main()
 {
-    int N;
+    long int N;
     cin >> N;
 
-    vector<float> v(N);
-    rep(i, N) {
-        cin >> v[i];
+    long int ans = 0;
+    long int digmin = digsum(N);
+    // 折り返し処理のためa * aがN以下までの範囲で全探索すればOK
+    for (long int a = 1; a * a <= N; a++) {
+        if (N % a != 0) continue;
+
+        long int b = N / a;
+
+        ans = min(digmin, max(digsum(a), digsum(b)));
     }
 
-    sort(v.begin(), v.end());
-    
-    float average = (v[0] + v[1]) / 2.0f;
-    
-    for (int i = 2; i < N; i++) {
-        average = (average + v[i]) / 2.0f;
-    }
-
-    cout << average << endl;
+    cout << ans << endl;
 
     return 0;
 } 
+
+// ある整数の桁数を返す関数(各桁の和も算出)
+long int digsum(long int num) 
+{
+    long int dig = 0;
+    long int sum = 0;
+    long int count = 0;
+    while (num) {
+        dig = num % 10;
+        sum = sum + dig;
+        num = num / 10;
+        count++;
+    }
+
+    return count;
+}
