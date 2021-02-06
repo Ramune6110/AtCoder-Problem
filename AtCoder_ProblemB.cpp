@@ -2096,3 +2096,47 @@ int main()
 
     return 0;
 }
+
+// ABC191B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int N, X;
+    cin >> N >> X;
+
+    vector<int> A(N);
+    rep(i, N) {
+        cin >> A[i];
+    }
+
+    // X を削除
+    vector<int>::iterator e = remove(A.begin(), A.end(), X);
+    // 不要な要素を消去
+    A.erase(e, A.end());
+
+    rep(i, A.size()) {
+        cout << A[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+} 
