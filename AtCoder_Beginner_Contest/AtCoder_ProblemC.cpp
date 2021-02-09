@@ -678,3 +678,58 @@ int main()
 
     return 0;
 }
+
+// ABC191C
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define FOR(i, n, m) for(int i = (int)(n); i < (int)(m); i++)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int H, W;
+    cin >> H >> W;
+
+    vector<string> S(H);
+    rep(i, H) {
+        cin >> S[i];
+    }
+
+    int ans = 0;
+    rep(i, H - 1) {
+        rep(j, W - 1) {
+            int cnt = 0;
+            
+            rep(di, 2) {
+                rep(dj, 2) {
+                    if (S[i + di][j + dj] == '#') {
+                        cnt++;
+                    }
+                }
+            }
+
+            if (cnt == 1 || cnt == 3) {
+                ans++;
+            }
+        }
+    }
+
+    cout << ans << endl;
+
+    return 0;
+} 
