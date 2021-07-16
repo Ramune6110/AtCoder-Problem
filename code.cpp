@@ -1,4 +1,4 @@
-// ABC102B
+// ABC112B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -22,28 +22,30 @@ long int digsum(long int num);
 
 int main()
 {   
-    int N;
-	cin >> N;
+    int N, T;
+	cin >> N >> T;
 
-	if (N <= 111) {
-		cout << 111 << endl;
-	} else if (N > 111 && N <= 222) {
-		cout << 222 << endl;
-	} else if (N > 222 && N <= 333) {
-		cout << 333 << endl;
-	} else if (N > 333 && N <= 444) {
-		cout << 444 << endl;
-	} else if (N > 444 && N <= 555) {
-		cout << 555 << endl;
-	} else if (N > 555 && N <= 666) {
-		cout << 666 << endl;
-	} else if (N > 666 && N <= 777) {
-		cout << 777 << endl;
-	} else if (N > 777 && N <= 888) {
-		cout << 888 << endl;
-	} else if (N > 888 && N <= 999) {
-		cout << 999 << endl;
-	} 
+	vector<int> v;  
+	vector<int> c(N);
+	vector<int> t(N);
+
+	for (int i = 0; i < N; i++) {
+		cin >> c[i] >> t[i];
+	}
+
+	for (int i = 0; i < N; i++) {
+		if (t[i] <= T) {
+			v.push_back(c[i]);
+		}
+	}
+	
+	if (v.size() > 0) {
+		// vector内の最小要素を取得
+		int min = *min_element(v.begin(), v.end());
+		cout << min << endl;
+	} else if (v.size() == 0) {
+		cout << "TLE" << endl;
+	}
 
 	return 0;
 } 
