@@ -25,17 +25,25 @@ int main()
     int N;
 	cin >> N;
 
-	vector<ll> A(N);
-	for(int i = 0; i < N; i++) {
-		cin >> A[i];
-	}
-
-	// vector要素の中の最大値と最小値を抽出する関数
-	// https://shunichiro.net/2019/10/01/c-vector%E3%81%8B%E3%82%89%E6%9C%80%E5%A4%A7%E5%80%A4%E3%83%BB%E6%9C%80%E5%B0%8F%E5%80%A4%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B/
-    ll max = *max_element(A.begin(), A.end());
-    ll min = *min_element(A.begin(), A.end());
-    
-	cout << abs(max - min) << endl;
+	if (N <= 111) {
+		cout << 111 << endl;
+	} else if (N > 111 && N <= 222) {
+		cout << 222 << endl;
+	} else if (N > 222 && N <= 333) {
+		cout << 333 << endl;
+	} else if (N > 333 && N <= 444) {
+		cout << 444 << endl;
+	} else if (N > 444 && N <= 555) {
+		cout << 555 << endl;
+	} else if (N > 555 && N <= 666) {
+		cout << 666 << endl;
+	} else if (N > 666 && N <= 777) {
+		cout << 777 << endl;
+	} else if (N > 777 && N <= 888) {
+		cout << 888 << endl;
+	} else if (N > 888 && N <= 999) {
+		cout << 999 << endl;
+	} 
 
 	return 0;
-}
+} 
