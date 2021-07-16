@@ -1,4 +1,4 @@
-// ABC082A
+// ABC084A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,19 +20,10 @@ using namespace std;
 
 int main()
 {   
-    int A, B, C, D;
-	cin >> A >> B >> C >> D;
+    int M;
+	cin >> M;
 
-	int left_weight = A + B;
-	int right_weight = C + D;
+	cout << (24 - M) + 24 << endl;
 
-	if (left_weight > right_weight) {
-		cout << "Left" << endl;
-	} else if (left_weight == right_weight) {
-		cout << "Balanced" << endl;
-	} else if (left_weight < right_weight) {
-		cout << "Right" << endl;
-	}
-
-    return 0;
+	return 0;
 }
