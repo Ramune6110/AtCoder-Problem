@@ -1,4 +1,4 @@
-// ABC113B
+// ABC114B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -22,30 +22,26 @@ long int digsum(long int num);
 
 int main()
 {   
-    int N;
-	cin >> N;
+    string S;
+	cin >> S;
+    
+	int minnum = 10000;
+	for (int i = 0; i < S.length() - 2; i++) {
+		string sub = S.substr(i, 3);
+		// 文字列から数字型へ変換
+		// https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
+		int num;
+		istringstream number;
 
-	int T, A;
-	cin >> T >> A;
+		number = istringstream(sub);
+		number >> num;
 
-	vector<int> H(N);
-	for (int i = 0; i < N; i++) {
-		cin >> H[i];
+		if (abs(num - 753) < minnum ) {
+			minnum = abs(num - 753);
+		}
 	}
 
-	vector<float> avgT(N);
-	int index = 0;
-	float min = 1e7;
-	for (int i = 0; i < N; i++) {
-		avgT[i] = (float)T - (float)H[i] * 0.006;
-
-		if (abs(avgT[i] - (float)A) < min) {
-			index = i;
-			min = abs(avgT[i] - (float)A);
-		}
-	} 
-
-	cout << index + 1 << endl;
+	cout << minnum << endl;
 
 	return 0;
 } 
