@@ -1526,6 +1526,77 @@ int main()
 	return 0;
 }
 
+// ABC085A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+long int digsum(long int num);
+
+int main()
+{   
+    string S;
+	cin >> S;
+
+	// 文字列の置換
+	// https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
+	cout << S.replace(0, 4, "2018") << endl;
+
+	return 0;
+} 
+
+// ABC086A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+long int digsum(long int num);
+
+int main()
+{   
+    int a, b;
+	cin >> a >> b;
+
+	int c = a * b;
+	if (c % 2 == 0) {
+		cout << "Even" << endl;
+	} else {
+		cout << "Odd" << endl;
+	}
+
+	return 0;
+} 
+
 // ABC190A
 #include <bits/stdc++.h>
 #include <iostream>
