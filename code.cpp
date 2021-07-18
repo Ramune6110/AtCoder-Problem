@@ -1,4 +1,4 @@
-// ABC087A
+// ABC088A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,23 +18,24 @@
 using ll = long long;
 using namespace std;
 
-long int digsum(long int num);
-
 int main()
 {   
-	int X, A, B;
-	cin >> X >> A >> B;
+	int N, A;
+	cin >> N >> A;
 
-	int total = X - A;
-	while(total > 0) {
-		total -= B;
-		if (total < 0) {
-			total = total + B;
+	while(N > 0) {
+		N -= 500;
+		if (N < 0) {
+			N = N + 500;
 			break;
 		}
 	}
 
-	cout << total << endl;
-
+	if (A >= N) {
+		cout << "Yes" << endl;
+	} else if (A < N) {
+		cout << "No" << endl;
+	}
+	
 	return 0;
- } 
+} 
