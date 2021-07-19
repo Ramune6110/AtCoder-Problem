@@ -1,4 +1,4 @@
-// ABC090A
+// ABC117B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,16 +20,25 @@ using namespace std;
 
 int main()
 {   
-	// (3 × 3)要素の配列を宣言
-	vector<vector<char>> c(3, vector<char>(3));
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			cin >> c.at(i).at(j);
-		}
+	int N;
+	cin >> N;
+
+	vector<int> L(N);
+	for (int i = 0; i < N; i++) {
+		cin >> L[i];
 	}
 
-	for (int i = 0; i < 3; i++) {
-		cout <<  c.at(i).at(i);
+	sort(L.begin(), L.end());
+
+	int sum = 0;
+	for (int i = 0; i < L.size() - 1; i++) {
+		sum += L[i];
+	}
+
+	if (sum > L[L.size() - 1]) {
+		cout << "Yes" << endl;
+	} else {
+		cout << "No" << endl;
 	}
 
 	return 0;
