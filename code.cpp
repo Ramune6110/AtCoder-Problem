@@ -1,4 +1,4 @@
-// ABC089A
+// ABC090A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,17 +20,17 @@ using namespace std;
 
 int main()
 {   
-	int N;
-	cin >> N;
-
-	int count = 0;
-	while(N > 0) {
-		N = N - 3;
-		if (N < 0) break;
-		count++;
+	// (3 × 3)要素の配列を宣言
+	vector<vector<char>> c(3, vector<char>(3));
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> c.at(i).at(j);
+		}
 	}
 
-	cout << count << endl;
+	for (int i = 0; i < 3; i++) {
+		cout <<  c.at(i).at(i);
+	}
 
 	return 0;
 } 
