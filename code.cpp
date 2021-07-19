@@ -1,4 +1,4 @@
-// ABC116B
+// ABC089A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,35 +20,17 @@ using namespace std;
 
 int main()
 {   
-	int s;
-	cin >> s;
+	int N;
+	cin >> N;
 
-	vector<int> a(1000000 + 10);
-	a[0] = s;
-	ll answer = 0;
-	bool flag = false;
-	for (ll i = 1; i < 1000000 + 10; i++) {
-		if (a[i - 1] % 2 == 0) {
-			a[i] = a[i - 1] / 2;
-		} else {
-			a[i] = 3 * a[i - 1] + 1;
-		}
-		
-		for (ll j = i - 1; j >= 0; j--) {
-			if (a[i] == a[j]) {
-				flag = true;
-				//cout << "Yes" << endl;
-				//cout << a[i] << endl;
-				//cout << a[j] << endl;
-				answer = i;
-				break;
-			}
-		}
-
-		if (flag == true) break;
+	int count = 0;
+	while(N > 0) {
+		N = N - 3;
+		if (N < 0) break;
+		count++;
 	}
 
-	cout << answer + 1 << endl;
+	cout << count << endl;
 
 	return 0;
 } 
