@@ -19,27 +19,28 @@ using ll = long long;
 using namespace std;
 
 int main()
-{   
-	int N;
-	cin >> N;
-
-	vector<int> L(N);
+{
+	int N, M;
+	cin >> N >> M;
+	
+	vector<int> ans(M + 1);
 	for (int i = 0; i < N; i++) {
-		cin >> L[i];
+		int K, index;
+		cin >> K;
+		for (int j = 0; j < K; j++) {
+			cin >> index;
+			ans[index - 1]++;
+		}
 	}
 
-	sort(L.begin(), L.end());
-
-	int sum = 0;
-	for (int i = 0; i < L.size() - 1; i++) {
-		sum += L[i];
+	int count = 0;
+	for (int i = 0; i < M; i++) {
+		if (ans[i] == N) {
+			count++;
+		}
 	}
 
-	if (sum > L[L.size() - 1]) {
-		cout << "Yes" << endl;
-	} else {
-		cout << "No" << endl;
-	}
-
+	cout << count << endl;
+	
 	return 0;
-} 
+}
