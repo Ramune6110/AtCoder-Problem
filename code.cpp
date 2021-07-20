@@ -1,4 +1,4 @@
-// ABC091A
+// ABC119B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,14 +20,34 @@ using namespace std;
 
 int main()
 {
-	int A, B, C;
-	cin >> A >> B >> C;
+	int N;
+	cin >> N;
 
-	if ((A + B) >= C) {
-		cout << "Yes" << endl;
-	} else {
-		cout << "No" << endl;
+	vector<double> x(N);
+	vector<string> u(N);
+	for(int i = 0; i < N; i++) {
+		cin >> x[i] >> u[i];
 	}
+
+	/*
+	cout << x[0] << endl;
+	cout << x[1] << endl;
+	cout << u[0] << endl;
+	cout << u[1] << endl;
+	*/
+
+	double Y = 0.0;
+	for(int i = 0; i < N; i++) {
+		if (u[i] == "JPY") {
+			Y = Y + x[i];
+			//cout << Y << endl;
+		} else if (u[i] == "BTC") {
+			Y = Y + x[i] * 380000.0;
+			//cout << Y << endl;
+		}
+	}
+
+	cout << Y << endl;
 
 	return 0;
 }
