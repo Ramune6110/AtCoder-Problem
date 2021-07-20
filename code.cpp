@@ -1,4 +1,4 @@
-// ABC119B
+// ABC120B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,36 +18,31 @@
 using ll = long long;
 using namespace std;
 
+int gcd(int x, int y, int K);
+
 int main()
 {
-	int N;
-	cin >> N;
+	int A, B, K;
+	cin >> A >> B >> K;
 
-	vector<double> x(N);
-	vector<string> u(N);
-	for(int i = 0; i < N; i++) {
-		cin >> x[i] >> u[i];
-	}
+	int num = gcd(A, B, K);
 
-	/*
-	cout << x[0] << endl;
-	cout << x[1] << endl;
-	cout << u[0] << endl;
-	cout << u[1] << endl;
-	*/
-
-	double Y = 0.0;
-	for(int i = 0; i < N; i++) {
-		if (u[i] == "JPY") {
-			Y = Y + x[i];
-			//cout << Y << endl;
-		} else if (u[i] == "BTC") {
-			Y = Y + x[i] * 380000.0;
-			//cout << Y << endl;
-		}
-	}
-
-	cout << Y << endl;
+	cout << num << endl;
 
 	return 0;
+}
+
+// 最大公約数を求める関数
+// https://qiita.com/akilax/items/d28aacbcd0836de2eea7
+int gcd(int x, int y, int K) {
+    int m = min(x, y);
+	int count = 0;
+    for(int d = m; d > 0; d--) {
+        if(x % d == 0 && y % d == 0) {
+			count++;
+			if (count == K) {
+				return d;
+			}
+        }
+    }
 }
