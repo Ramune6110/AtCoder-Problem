@@ -1,4 +1,4 @@
-// ABC120B
+// ABC121B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -18,31 +18,38 @@
 using ll = long long;
 using namespace std;
 
-int gcd(int x, int y, int K);
-
 int main()
 {
-	int A, B, K;
-	cin >> A >> B >> K;
+	int N, M, C;
+	cin >> N >> M >> C;
 
-	int num = gcd(A, B, K);
+	vector<int> B(M);
+	for(int i = 0; i < M; i++) {
+		cin >> B[i];
+	}
 
-	cout << num << endl;
+	// (N × M)要素の配列を宣言
+	vector<vector<int>> A(N, vector<int>(M));
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			cin >> A.at(i).at(j);
+		}
+	}
+
+	int cnt = 0;
+	for(int i = 0; i < N; i++) {
+		int total = 0;
+		for(int j = 0; j < M; j++) {
+			total = total + A.at(i).at(j) * B.at(j);
+		}
+		total = total + C;
+
+		if (total > 0) {
+			cnt++;
+		}
+	}
+
+	cout << cnt << endl;
 
 	return 0;
-}
-
-// 最大公約数を求める関数
-// https://qiita.com/akilax/items/d28aacbcd0836de2eea7
-int gcd(int x, int y, int K) {
-    int m = min(x, y);
-	int count = 0;
-    for(int d = m; d > 0; d--) {
-        if(x % d == 0 && y % d == 0) {
-			count++;
-			if (count == K) {
-				return d;
-			}
-        }
-    }
 }
