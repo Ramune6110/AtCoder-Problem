@@ -1,4 +1,4 @@
-// ABC117B
+// ABC091A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,27 +20,14 @@ using namespace std;
 
 int main()
 {
-	int N, M;
-	cin >> N >> M;
-	
-	vector<int> ans(M + 1);
-	for (int i = 0; i < N; i++) {
-		int K, index;
-		cin >> K;
-		for (int j = 0; j < K; j++) {
-			cin >> index;
-			ans[index - 1]++;
-		}
+	int A, B, C;
+	cin >> A >> B >> C;
+
+	if ((A + B) >= C) {
+		cout << "Yes" << endl;
+	} else {
+		cout << "No" << endl;
 	}
 
-	int count = 0;
-	for (int i = 0; i < M; i++) {
-		if (ans[i] == N) {
-			count++;
-		}
-	}
-
-	cout << count << endl;
-	
 	return 0;
 }
