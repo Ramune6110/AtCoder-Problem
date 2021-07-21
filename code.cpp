@@ -1,4 +1,4 @@
-// ABC092A
+// ABC124B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,23 +20,33 @@ using namespace std;
 
 int main()
 {
-	int A, B, C, D;
-	cin >> A >> B >> C >> D;
+	int N;
+	cin >> N;
 
-	int total = 0;
-	if (A > B) {
-		total += B;
-	} else {
-		total += A;
+	vector<int> H(N);
+	for (int i = 0; i < N; i++) {
+		cin >> H.at(i);
 	}
 
-	if (C > D) {
-		total += D;
-	} else {
-		total += C;
+	int cnt = 1;
+	for (int i = 1; i < N; i++) {
+		bool flag = true;
+		int temp = H[i];
+		for (int j = 0; j < i; j++) {
+			if (i != j) {
+				if (H[j] <= temp) {
+
+				} else {
+					flag = false;
+				}
+			}
+		}
+
+		if (flag == true) {
+			cnt++;
+		}
 	}
 
-	cout << total << endl;
-
+	cout << cnt << endl;
 	return 0;
 }
