@@ -1,4 +1,4 @@
-// ABC121B
+// ABC092A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,36 +20,23 @@ using namespace std;
 
 int main()
 {
-	int N, M, C;
-	cin >> N >> M >> C;
+	int A, B, C, D;
+	cin >> A >> B >> C >> D;
 
-	vector<int> B(M);
-	for(int i = 0; i < M; i++) {
-		cin >> B[i];
+	int total = 0;
+	if (A > B) {
+		total += B;
+	} else {
+		total += A;
 	}
 
-	// (N × M)要素の配列を宣言
-	vector<vector<int>> A(N, vector<int>(M));
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			cin >> A.at(i).at(j);
-		}
+	if (C > D) {
+		total += D;
+	} else {
+		total += C;
 	}
 
-	int cnt = 0;
-	for(int i = 0; i < N; i++) {
-		int total = 0;
-		for(int j = 0; j < M; j++) {
-			total = total + A.at(i).at(j) * B.at(j);
-		}
-		total = total + C;
-
-		if (total > 0) {
-			cnt++;
-		}
-	}
-
-	cout << cnt << endl;
+	cout << total << endl;
 
 	return 0;
 }
