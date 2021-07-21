@@ -1,4 +1,4 @@
-// ABC124B
+// ABC125B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -23,30 +23,22 @@ int main()
 	int N;
 	cin >> N;
 
-	vector<int> H(N);
+	vector<int> C(N);
+	vector<int> V(N);
 	for (int i = 0; i < N; i++) {
-		cin >> H.at(i);
+		cin >> V.at(i);
+	}
+	for (int i = 0; i < N; i++) {
+		cin >> C.at(i);
 	}
 
-	int cnt = 1;
-	for (int i = 1; i < N; i++) {
-		bool flag = true;
-		int temp = H[i];
-		for (int j = 0; j < i; j++) {
-			if (i != j) {
-				if (H[j] <= temp) {
-
-				} else {
-					flag = false;
-				}
-			}
-		}
-
-		if (flag == true) {
-			cnt++;
-		}
+	vector<int> dp(N);
+	dp[0] = 0;
+	for (int i = 1; i <= N; i++) {
+		dp[i] = max(dp[i - 1], dp[i - 1] + V[i - 1] - C[i - 1]);
 	}
 
-	cout << cnt << endl;
+	cout << dp[N] << endl;
+
 	return 0;
 }
