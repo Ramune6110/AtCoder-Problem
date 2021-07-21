@@ -1,4 +1,4 @@
-// ABC125B
+// ABC127B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,25 +20,15 @@ using namespace std;
 
 int main()
 {
-	int N;
-	cin >> N;
+	int r, D, x;
+	cin >> r >> D >> x;
 
-	vector<int> C(N);
-	vector<int> V(N);
-	for (int i = 0; i < N; i++) {
-		cin >> V.at(i);
+	vector<int> X(10);
+	X[0] = x;
+	for (int i = 1; i <= 10; i++) {
+		X[i] = r * X[i - 1] - D;
+		cout << X[i] << endl;
 	}
-	for (int i = 0; i < N; i++) {
-		cin >> C.at(i);
-	}
-
-	vector<int> dp(N);
-	dp[0] = 0;
-	for (int i = 1; i <= N; i++) {
-		dp[i] = max(dp[i - 1], dp[i - 1] + V[i - 1] - C[i - 1]);
-	}
-
-	cout << dp[N] << endl;
 
 	return 0;
 }
