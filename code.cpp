@@ -1,4 +1,4 @@
-// ABC127B
+// ABC093A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,15 +20,19 @@ using namespace std;
 
 int main()
 {
-	int r, D, x;
-	cin >> r >> D >> x;
+	string S;
+	cin >> S;
 
-	vector<int> X(10);
-	X[0] = x;
-	for (int i = 1; i <= 10; i++) {
-		X[i] = r * X[i - 1] - D;
-		cout << X[i] << endl;
+	// https://www.sejuku.net/blog/49318
+	int A = S.find_first_of('a');
+	int B = S.find_first_of('b');
+	int C = S.find_first_of('c');
+
+	if ( (A == std::string::npos) || (B == std::string::npos) || (C == std::string::npos) ) {
+		cout << "No" << endl;
+	} else {
+		cout << "Yes" << endl;
 	}
-
+	
 	return 0;
 }
