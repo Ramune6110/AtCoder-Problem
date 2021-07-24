@@ -1,4 +1,4 @@
-// ABC093A
+// ABC128B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,18 +20,23 @@ using namespace std;
 
 int main()
 {
-	string S;
-	cin >> S;
+	int N;
+	cin >> N;
 
-	// https://www.sejuku.net/blog/49318
-	int A = S.find_first_of('a');
-	int B = S.find_first_of('b');
-	int C = S.find_first_of('c');
+	map<string, vector<pair<int, int>>> rbc;
+	for(int i = 0; i < N; i++) {
+		string S;
+		int P;
+		cin >> S >> P;
+		rbc[S].push_back(make_pair(P, i + 1));
+	}
 
-	if ( (A == std::string::npos) || (B == std::string::npos) || (C == std::string::npos) ) {
-		cout << "No" << endl;
-	} else {
-		cout << "Yes" << endl;
+	for(auto itr = rbc.begin(); itr != rbc.end(); itr++) {
+		// https://cpprefjp.github.io/reference/map/map/rbegin.html
+		sort(itr->second.rbegin(), itr->second.rend());
+		for(int j = 0; j < itr->second.size(); j++) {
+			cout << itr->second[j].second << endl;
+		}
 	}
 	
 	return 0;
