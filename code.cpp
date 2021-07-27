@@ -1,4 +1,4 @@
-// ABC129B
+// ABC130B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,30 +20,24 @@ using namespace std;
 
 int main()
 {
-	int N;
-	cin >> N;
-	
-	vector<int> W(N);
-	for(int i = 0; i < N; i++) {
-		cin >> W[i];
+	int N, X;
+	cin >> N >> X;
+
+	vector<int> L(N);
+	for (int i = 0; i < N; i++) {
+		cin >> L[i];
 	}
 
-	int minnum = 100000;
-	for(int i = 0; i < N; i++) {
-		int S1 = 0;
-		int S2 = 0;
-		int T = i;
-		for(int j = 0; j < T; j++) {
-			S1 += W[j];
+	int cnt = 1;
+	int total = 0;
+	for (int i = 0; i < N; i++) {
+		total += L[i];
+		if (total <= X) {
+			cnt++;
+		} else {
+			break;
 		}
-		for(int k = T; k < N; k++) {
-			S2 += W[k];
-		}
-
-		minnum = min(minnum, abs(S1 - S2));
 	}
 
-	cout << minnum << endl;
-
-	return 0;
+	cout << cnt << endl;
 }
