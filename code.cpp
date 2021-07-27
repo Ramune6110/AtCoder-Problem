@@ -1,4 +1,4 @@
-// ABC094A
+// ABC129B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,14 +20,30 @@ using namespace std;
 
 int main()
 {
-	int A, B, X;
-	cin >> A >> B >> X;
-
-	if (A <= X && A + B >= X) {
-		cout << "YES" << endl;
-	} else {
-		cout << "NO" << endl;
+	int N;
+	cin >> N;
+	
+	vector<int> W(N);
+	for(int i = 0; i < N; i++) {
+		cin >> W[i];
 	}
+
+	int minnum = 100000;
+	for(int i = 0; i < N; i++) {
+		int S1 = 0;
+		int S2 = 0;
+		int T = i;
+		for(int j = 0; j < T; j++) {
+			S1 += W[j];
+		}
+		for(int k = T; k < N; k++) {
+			S2 += W[k];
+		}
+
+		minnum = min(minnum, abs(S1 - S2));
+	}
+
+	cout << minnum << endl;
 
 	return 0;
 }
