@@ -1,4 +1,4 @@
-// ABC128B
+// ABC094A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,24 +20,14 @@ using namespace std;
 
 int main()
 {
-	int N;
-	cin >> N;
+	int A, B, X;
+	cin >> A >> B >> X;
 
-	map<string, vector<pair<int, int>>> rbc;
-	for(int i = 0; i < N; i++) {
-		string S;
-		int P;
-		cin >> S >> P;
-		rbc[S].push_back(make_pair(P, i + 1));
+	if (A <= X && A + B >= X) {
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
 	}
 
-	for(auto itr = rbc.begin(); itr != rbc.end(); itr++) {
-		// https://cpprefjp.github.io/reference/map/map/rbegin.html
-		sort(itr->second.rbegin(), itr->second.rend());
-		for(int j = 0; j < itr->second.size(); j++) {
-			cout << itr->second[j].second << endl;
-		}
-	}
-	
 	return 0;
 }
