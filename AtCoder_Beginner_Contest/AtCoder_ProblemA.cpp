@@ -1904,6 +1904,47 @@ int main()
 	return 0;
 }
 
+// ABC095A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+	string S;
+	cin >> S;
+
+	int cnt = 0;
+	if (S[0] == 'o') {
+		cnt++;
+	}
+	if (S[1] == 'o') {
+		cnt++;
+	} 
+	if (S[2] == 'o') {
+		cnt++;
+	}
+
+	cout << 700 + 100 * cnt << endl;
+
+	return 0;
+}
+
 // ABC190A
 #include <bits/stdc++.h>
 #include <iostream>
