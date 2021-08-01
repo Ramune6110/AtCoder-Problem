@@ -1,4 +1,4 @@
-// ABC138B
+// ABC140B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -24,16 +24,31 @@ int main()
     cin >> N;
 
     vector<int> A(N);
+    vector<int> B(N);
+    vector<int> C(N - 1);
+
     for (int i = 0; i < N; i++) {
         cin >> A[i];
     }
-
-    double total = 0.0;
     for (int i = 0; i < N; i++) {
-        total += (double) (1.0 / A[i]);
+        cin >> B[i];
+    }
+    for (int i = 0; i < N - 1; i++) {
+        cin >> C[i];
     }
 
-    cout << (double) (1.0 / total) << endl;
+    int total = 0;
+    int prev  = 0;
+    for (int i = 0; i < N; i++) {
+        total += B[A[i] - 1];
+
+        if (prev == A[i] - 1) {
+            total += C[prev - 1];
+        }
+        prev = A[i];
+    }
+
+    cout << total << endl;
 
     return 0;
 }
