@@ -1945,6 +1945,40 @@ int main()
 	return 0;
 }
 
+// ABC096A
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+
+    if (a <= b) {
+        cout << a << endl;
+    } else {
+        cout << a - 1 << endl;
+    }
+
+    return 0;
+}
+
 // ABC190A
 #include <bits/stdc++.h>
 #include <iostream>

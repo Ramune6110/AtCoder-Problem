@@ -1,4 +1,4 @@
-// ABC137B
+// ABC138B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,5 +20,20 @@ using namespace std;
 
 int main()
 {
+    int N;
+    cin >> N;
 
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+
+    double total = 0.0;
+    for (int i = 0; i < N; i++) {
+        total += (double) (1.0 / A[i]);
+    }
+
+    cout << (double) (1.0 / total) << endl;
+
+    return 0;
 }
