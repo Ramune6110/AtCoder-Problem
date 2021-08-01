@@ -1,4 +1,4 @@
-// ABC140B
+// ABC142B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,35 +20,22 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int N, K;
+    cin >> N >> K;
 
-    vector<int> A(N);
-    vector<int> B(N);
-    vector<int> C(N - 1);
-
+    vector<int> h(N);
     for (int i = 0; i < N; i++) {
-        cin >> A[i];
-    }
-    for (int i = 0; i < N; i++) {
-        cin >> B[i];
-    }
-    for (int i = 0; i < N - 1; i++) {
-        cin >> C[i];
+        cin >> h[i];
     }
 
-    int total = 0;
-    int prev  = 0;
+    int cnt = 0;
     for (int i = 0; i < N; i++) {
-        total += B[A[i] - 1];
-
-        if (prev == A[i] - 1) {
-            total += C[prev - 1];
+        if (h[i] >= K) {
+            cnt++;
         }
-        prev = A[i];
     }
 
-    cout << total << endl;
+    cout << cnt << endl;
 
     return 0;
 }
