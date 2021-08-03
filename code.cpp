@@ -1,4 +1,4 @@
-// ABC097A
+// ABC144B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,13 +20,23 @@ using namespace std;
 
 int main()
 {
-    int a, b, c, d;
-    cin >> a >> b >> c >> d;
+    int N;
+    cin >> N;
 
-    if ( (abs(a - c) <= d) || ( (abs(a - b) <= d) && (abs(b - c) <= d) ) ) {
-        cout << "Yes" << endl;
-    } else {
+    bool flag = false;
+    for (int i = 1; i <= 9; i++) {
+        if (N % i == 0) {
+            int ans = N / i;
+            if ((ans >= 1) && (ans <= 9)) {
+                flag = true;
+            }
+        }
+    }
+
+    if (flag == false) {
         cout << "No" << endl;
+    } else {
+        cout << "Yes" << endl;
     }
 
     return 0;
