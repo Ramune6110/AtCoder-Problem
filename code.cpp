@@ -1,4 +1,4 @@
-// ABC145B
+// ABC146B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -25,26 +25,15 @@ int main()
 
     string S;
     cin >> S;
- 
-    bool flag = false;
-    if (N % 2 == 0) {
-        for (int i = 0; i < N / 2; i++) {
-            if (S[i] == S[i + N / 2]) {
-                flag = true;
-            } else {
-                flag = false;
-                break;
-            }   
+
+    for (int i = 0; i < S.length(); i++) {
+        S.at(i) += N;
+        if (S.at(i) > 'Z') {
+            S.at(i) -= 26;
         }
-    } else {
-        flag = false;
     }
-    
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-    
+
+    cout << S << endl;
+
     return 0;
 }
