@@ -1,4 +1,4 @@
-// ABC098A
+// ABC149B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,10 +20,38 @@ using namespace std;
 
 int main()
 {
-    int A, B;
-    cin >> A >> B;
+    ll A, B, K;
+    cin >> A >> B >> K;
 
-    cout << max({A + B, A - B, A * B}) << endl;
+    /*
+    ll num = (A - 1) - K;
+    if (A >= 1 && num >= 0) {
+        A -= K;
+    } else {
+        num = K - A;
+        A = 0;
+    }
+
+    ll numb = (B - 1) - num;
+    if (A < 1 && B >= 1 && numb >= 0) {
+        B -= num;
+    } else {
+        B = 0;
+    }
+
+    if (A == 0) {
+        A = 0;
+    } else if (B == 0) {
+        B = 0;
+    }
+    */
+   
+    ll num = min(A, K);
+    A = A - num;
+    K = K - num;
+    B = B - min(B, K);
+
+    cout << A << " " <<  B << endl;
 
     return 0;
 }
