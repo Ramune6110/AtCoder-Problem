@@ -1,4 +1,4 @@
-// ABC146B
+// ABC098A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,20 +20,10 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int A, B;
+    cin >> A >> B;
 
-    string S;
-    cin >> S;
-
-    for (int i = 0; i < S.length(); i++) {
-        S.at(i) += N;
-        if (S.at(i) > 'Z') {
-            S.at(i) -= 26;
-        }
-    }
-
-    cout << S << endl;
+    cout << max({A + B, A - B, A * B}) << endl;
 
     return 0;
 }
