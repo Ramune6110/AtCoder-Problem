@@ -1,4 +1,4 @@
-// ABC099A
+// ABC152B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,13 +20,33 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int a, b;
+    cin >> a >> b;
 
-    if (N >= 1 && N <= 999) {
-        cout << "ABC" << endl;
-    } else if (N >= 1000; N <= 1998) {
-        cout << "ABD" << endl;
+    //  数値を文字で連結
+    ostringstream A;
+    for (int i = 0; i < b; i++) {
+        A << a;
+    }
+
+    ostringstream B;
+    for (int i = 0; i < a; i++) {
+        B << b;
+    }
+
+    string str_A;
+    str_A = str_A + A.str();
+
+    string str_B;
+    str_B = str_B + B.str();
+
+    // 文字列の比較(辞書順)
+    if (str_A > str_B) {
+        cout << str_B << endl;
+    } else if (str_A < str_B) {
+        cout << str_A << endl;
+    } else if (str_A == str_B) {
+        cout << str_A << endl;
     }
 
     return 0;
