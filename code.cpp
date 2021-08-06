@@ -1,4 +1,4 @@
-// ABC153B
+// ABC154B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,35 +20,14 @@ using namespace std;
 
 int main()
 {
-    ll H, N;
-    cin >> H >> N;
+    string S;
+    cin >> S;
 
-    vector<ll> A(N);
-    for (ll i = 0; i < N; i++) {
-        cin >> A[i];
+    for (int i = 0; i < S.length(); i++) {
+        S.replace(i, 1, "x");
     }
 
-    // 配列を降順にソートする
-    sort(A.begin(), A.end(), greater<ll>());
-
-    bool flag = false;
-    for (ll i = 0; i < N; i++) {
-        H -= A[i];
-        if (H <= 0) {
-            flag = true;
-            break;
-        }
-    }
-
-    if (H <= 0) {
-       flag = true; 
-    }
-
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else if (flag == false) {
-        cout << "No" << endl;
-    }
+    cout << S << endl;
 
     return 0;
 }
