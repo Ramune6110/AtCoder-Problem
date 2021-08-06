@@ -1,4 +1,4 @@
-// ABC152B
+// ABC153B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,33 +20,34 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    cin >> a >> b;
+    ll H, N;
+    cin >> H >> N;
 
-    //  数値を文字で連結
-    ostringstream A;
-    for (int i = 0; i < b; i++) {
-        A << a;
+    vector<ll> A(N);
+    for (ll i = 0; i < N; i++) {
+        cin >> A[i];
     }
 
-    ostringstream B;
-    for (int i = 0; i < a; i++) {
-        B << b;
+    // 配列を降順にソートする
+    sort(A.begin(), A.end(), greater<ll>());
+
+    bool flag = false;
+    for (ll i = 0; i < N; i++) {
+        H -= A[i];
+        if (H <= 0) {
+            flag = true;
+            break;
+        }
     }
 
-    string str_A;
-    str_A = str_A + A.str();
+    if (H <= 0) {
+       flag = true; 
+    }
 
-    string str_B;
-    str_B = str_B + B.str();
-
-    // 文字列の比較(辞書順)
-    if (str_A > str_B) {
-        cout << str_B << endl;
-    } else if (str_A < str_B) {
-        cout << str_A << endl;
-    } else if (str_A == str_B) {
-        cout << str_A << endl;
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else if (flag == false) {
+        cout << "No" << endl;
     }
 
     return 0;
