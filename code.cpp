@@ -1,4 +1,4 @@
-// ABC151B
+// ABC099A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,25 +20,14 @@ using namespace std;
 
 int main()
 {
-    int N, K, M;
-    cin >> N >> K >> M;
+    int N;
+    cin >> N;
 
-    vector<int> A(N - 1);
-    for (int i = 0; i < N - 1; i++) {
-        cin >> A[i];
+    if (N >= 1 && N <= 999) {
+        cout << "ABC" << endl;
+    } else if (N >= 1000; N <= 1998) {
+        cout << "ABD" << endl;
     }
-
-    int ans = 0;
-    int total = M * N - std::accumulate(A.begin(), A.end(), 0);
-    if (total >= 0 && total <= K) {
-        ans = total;
-    } else if (total < 0) {
-        ans = 0;
-    } else if (total > K) {
-        ans = -1;
-    }
-
-    cout << ans << endl;
 
     return 0;
 }
