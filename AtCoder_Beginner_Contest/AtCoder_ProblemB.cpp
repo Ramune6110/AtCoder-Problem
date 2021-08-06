@@ -3458,6 +3458,59 @@ int main()
     return 0;
 }
 
+// ABC155B
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <regex>
+#include <cstdio>
+#include <algorithm>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <vector>
+#include <set>
+
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
+
+using ll = long long;
+using namespace std;
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+
+    bool flag = false;
+    for (int i = 0; i < N; i++) {
+        if ((A[i] % 2) == 0) {
+            if ( ((A[i] % 3) == 0) || ((A[i] % 5) == 0) ) {
+                flag = true;
+            } else {    
+                flag = false;
+                break;
+            }
+        } else {
+            flag = true;
+        }
+    }
+
+    if (flag == true) {
+        cout << "APPROVED" << endl;
+    } else {
+        cout << "DENIED" << endl;
+    }
+
+    return 0;
+}
+
 // ABC160B
 #include <bits/stdc++.h>
 #include <iostream>
