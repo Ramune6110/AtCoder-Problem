@@ -1,4 +1,4 @@
-// ABC155B
+// ABC100A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,32 +20,13 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int A, B;
+    cin >> A >> B;
 
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
-    }
-
-    bool flag = false;
-    for (int i = 0; i < N; i++) {
-        if ((A[i] % 2) == 0) {
-            if ( ((A[i] % 3) == 0) || ((A[i] % 5) == 0) ) {
-                flag = true;
-            } else {    
-                flag = false;
-                break;
-            }
-        } else {
-            flag = true;
-        }
-    }
-
-    if (flag == true) {
-        cout << "APPROVED" << endl;
+    if (A <= 8 && B <= 8) {
+        cout << "Yay!" << endl;
     } else {
-        cout << "DENIED" << endl;
+        cout << ":(" << endl;
     }
 
     return 0;
