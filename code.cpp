@@ -1,4 +1,4 @@
-// ABC101A
+// ABC159B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -22,17 +22,40 @@ int main()
 {
     string S;
     cin >> S;
-    
-    int ans = 0;
-    for (int i = 0; i < S.size(); i++) {
-        if (S[i] == '+') {
-            ans += 1;
-        } else if (S[i] == '-') {
-            ans -= 1;
+
+    int N = S.size();
+    int cnt = (N - 1) / 2;
+
+    bool palin_1 = false;
+    for (int i = 0; i < cnt; i++) {
+        if (S[i] == S[cnt - (i + 1)]) {
+            palin_1 = true;
+        } else {
+            palin_1 = false;
+            break;
         }
+
+        if (palin_1 == false) break;
     }
 
-    cout << ans << endl;
-    
+    int cnt2 = (N + 3) / 2 - 1;
+    bool palin_2 = false;
+    for (int i = (N + 3) / 2 - 1; i < N; i++) {
+        if (S[i] == S[N - ((i - cnt2) + 1)]) {
+            palin_2 = true;
+        } else {
+            palin_2 = false;
+            break;
+        }
+
+        if (palin_2 == false) break;
+    }
+
+    if (palin_1 == true && palin_2 == true) {
+        cout << "Yes" << endl; 
+    } else {
+        cout << "No" << endl;
+    }
+
     return 0;
 }
