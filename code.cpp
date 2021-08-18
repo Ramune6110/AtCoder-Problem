@@ -1,4 +1,4 @@
-// ABC164B
+// ABC166B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,29 +20,30 @@ using namespace std;
 
 int main()
 {
-    int A, B, C, D;
-    cin >> A >> B >> C >> D;
+    int N, K;
+    cin >> N >> K;
+    
+    vector<int> sunuke(N);
+    for (int i = 0; i < N; i++) {
+        sunuke[i] = 1;
+    }
 
-    bool flag = false;
-    for (int i = 1; i <= 100; i++) {
-        C = C - B;
-        if (C <= 0) {
-            flag = true;
-            break;
-        }
+    for (int i = 0; i < K; i++) {
+        int d;
+        cin >> d;
 
-        A = A - D;
-        if (A <= 0) {
-            flag = false;
-            break;
+        for (int j = 0; j < d; j++) {
+            int A;
+            cin >> A;
+
+            sunuke[A - 1] = 0;
         }
     }
 
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    int init = 0;
+    int sum = accumulate(sunuke.begin(), sunuke.end(), init);
+
+    cout << sum << endl;
 
     return 0;
 }
