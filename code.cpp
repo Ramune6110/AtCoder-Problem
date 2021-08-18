@@ -1,4 +1,4 @@
-// ABC162B
+// ABC164B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,28 +20,29 @@ using namespace std;
 
 int main()
 {
-    ll N;
-    cin >> N;
+    int A, B, C, D;
+    cin >> A >> B >> C >> D;
 
-    vector<ll> a(N);
+    bool flag = false;
+    for (int i = 1; i <= 100; i++) {
+        C = C - B;
+        if (C <= 0) {
+            flag = true;
+            break;
+        }
 
-    for (ll i = 1; i <= N; i++) {
-        if ( (i % 3 == 0) && (i % 5 == 0) ) {
-            a[i - 1] = 0;
-        } else if (i % 3 == 0) {
-            a[i - 1] = 0;
-        } else if (i % 5 == 0) {
-            a[i - 1] = 0;
-        } else {
-            a[i - 1] = i;
+        A = A - D;
+        if (A <= 0) {
+            flag = false;
+            break;
         }
     }
-    
-    // std::accumulateの初期値について
-    // http://kowaimononantenai.blogspot.com/2013/11/stdaccumulatevectorstdaccumulate3.html
-    ll init = 0;
-    ll sum = std::accumulate(a.begin(), a.end(), init);
-    cout << sum << endl;
+
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
