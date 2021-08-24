@@ -1,4 +1,4 @@
-// ABC166B
+// ABC103A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,30 +20,31 @@ using namespace std;
 
 int main()
 {
-    int N, K;
-    cin >> N >> K;
-    
-    vector<int> sunuke(N);
-    for (int i = 0; i < N; i++) {
-        sunuke[i] = 1;
+    vector<int> A(3);
+    for (int i = 0; i < 3; i++) {
+        cin >> A[i];
     }
-
-    for (int i = 0; i < K; i++) {
-        int d;
-        cin >> d;
-
-        for (int j = 0; j < d; j++) {
-            int A;
-            cin >> A;
-
-            sunuke[A - 1] = 0;
+    
+    vector<int> task(3 * 2);
+    for (int i = 0; i < 3; i++) {
+        if (i == 0) {
+            task[0] = abs(A[i] - A[i + 1]) + abs(A[i + 2] - A[i + 1]);
+            task[1] = abs(A[i] - A[i + 2]) + abs(A[i + 1] - A[i + 2]);
+        }
+        if (i == 1) {
+            task[2] = abs(A[i - 1] - A[i]) + abs(A[i + 1] - A[i - 1]);
+            task[3] = abs(A[i + 1] - A[i]) + abs(A[i - 1] - A[i + 1]);
+        }
+        if (i == 2) {
+            task[4] = abs(A[i - 2] - A[i]) + abs(A[i - 1] - A[i - 2]);
+            task[5] = abs(A[i - 1] - A[i]) + abs(A[i - 2] - A[i - 1]);
         }
     }
+    
+    // vectorを昇順ソートにソートする
+    sort(task.begin(),task.end());
 
-    int init = 0;
-    int sum = accumulate(sunuke.begin(), sunuke.end(), init);
-
-    cout << sum << endl;
+    cout << task[0] << endl;
 
     return 0;
 }
