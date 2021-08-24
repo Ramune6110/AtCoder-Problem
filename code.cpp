@@ -1,4 +1,4 @@
-// ABC103A
+// ABC167B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,31 +20,20 @@ using namespace std;
 
 int main()
 {
-    vector<int> A(3);
-    for (int i = 0; i < 3; i++) {
-        cin >> A[i];
-    }
-    
-    vector<int> task(3 * 2);
-    for (int i = 0; i < 3; i++) {
-        if (i == 0) {
-            task[0] = abs(A[i] - A[i + 1]) + abs(A[i + 2] - A[i + 1]);
-            task[1] = abs(A[i] - A[i + 2]) + abs(A[i + 1] - A[i + 2]);
-        }
-        if (i == 1) {
-            task[2] = abs(A[i - 1] - A[i]) + abs(A[i + 1] - A[i - 1]);
-            task[3] = abs(A[i + 1] - A[i]) + abs(A[i - 1] - A[i + 1]);
-        }
-        if (i == 2) {
-            task[4] = abs(A[i - 2] - A[i]) + abs(A[i - 1] - A[i - 2]);
-            task[5] = abs(A[i - 1] - A[i]) + abs(A[i - 2] - A[i - 1]);
-        }
-    }
-    
-    // vectorを昇順ソートにソートする
-    sort(task.begin(),task.end());
+    ll A, B, C, K;
+    cin >> A >> B >> C >> K;
 
-    cout << task[0] << endl;
+    ll total = 0;
+  
+    if (K <= A) {
+        total = K;
+    } else if (K > A && K <= A + B) {
+        total = A;
+    } else if (K > A + B && K <= A + B + C) {
+        total = A - abs(K - (A + B));
+    }
+
+    cout << total << endl;
 
     return 0;
 }
