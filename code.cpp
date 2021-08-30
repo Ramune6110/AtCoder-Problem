@@ -1,4 +1,4 @@
-// ABC172B
+// ABC173B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,24 +20,34 @@ using namespace std;
 
 int main()
 {
-    string S, T;
-    cin >> S;
-    cin >> T;
-    
-    ll ans = 0;
-    if (S == T) {
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i < S.length(); i++) {
-            if (S[i] == T[i]) {
+    ll N;
+    cin >> N;
 
-            } else {
-                ans++;
-            }
-        }
-
-        cout << ans << endl;
+    vector<string> S(N);
+    for (ll i = 0; i < N; i++) {
+        cin >> S[i];
     }
+
+    ll C0 = 0;
+    ll C1 = 0;
+    ll C2 = 0;
+    ll C3 = 0;
+    for (ll i = 0; i < N; i++) {
+        if (S[i] == "AC") {
+            C0++;
+        } else if (S[i] == "WA") {
+            C1++;
+        } else if (S[i] == "TLE") {
+            C2++;
+        } else if (S[i] == "RE") {
+            C3++;
+        }
+    }
+
+    cout << "AC" << " " << "x" << " " << C0 << endl;
+    cout << "WA" << " " << "x" << " " << C1 << endl;
+    cout << "TLE" << " " << "x" << " " << C2 << endl;
+    cout << "RE" << " " << "x" << " " << C3 << endl;
 
     return 0;
 }
