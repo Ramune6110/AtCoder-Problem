@@ -1,4 +1,4 @@
-// ABC168B
+// ABC104A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,27 +20,15 @@ using namespace std;
 
 int main()
 {
-    int K;
-    cin >> K;
+    int R;
+    cin >> R;
 
-    string S;
-    cin >> S;
-
-    vector<string> ans;
-    if (S.length() <= K) {
-        cout << S << endl;
-    } else if (S.length() > K) {
-        for (int i = 0; i < K; i++){
-            // charからstringへ変換
-            // https://marycore.jp/prog/cpp/convert-char-to-string/
-            string s = string {S[i]};
-            ans.push_back(s);
-        }
-        ans.push_back("...");
-        for (int i = 0; i < ans.size(); i++) {
-            cout << ans[i];
-        }
-        cout << endl;
+    if (R < 1200) {
+        cout << "ABC" << endl;
+    } else if (R >= 1200 && R < 2800) {
+        cout << "ARC" << endl;
+    } else if (R >= 2800) {
+        cout << "AGC" << endl;
     }
 
     return 0;
