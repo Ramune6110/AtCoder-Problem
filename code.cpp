@@ -1,4 +1,4 @@
-// ABC170B
+// ABC171B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,21 +20,22 @@ using namespace std;
 
 int main()
 {
-    int X, Y;
-    cin >> X >> Y;
+    int N, K;
+    cin >> N >> K;
 
-    bool flag = false;
-    for (int i = 0; i <= X; i++) {
-        if (2 * i + (X - i) * 4 == Y) {
-            flag = true;
-        }
+    vector<int> p(N);
+    for (int i = 0; i < N; i++) {
+        cin >> p[i];
     }
 
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    sort(p.begin(), p.end());
+
+    int ans = 0;
+    for (int i = 0; i < K; i++) {
+        ans += p[i];
     }
+
+    cout << ans << endl;
 
     return 0;
 }
