@@ -1,4 +1,4 @@
-// ABC104A
+// ABC170B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,15 +20,20 @@ using namespace std;
 
 int main()
 {
-    int R;
-    cin >> R;
+    int X, Y;
+    cin >> X >> Y;
 
-    if (R < 1200) {
-        cout << "ABC" << endl;
-    } else if (R >= 1200 && R < 2800) {
-        cout << "ARC" << endl;
-    } else if (R >= 2800) {
-        cout << "AGC" << endl;
+    bool flag = false;
+    for (int i = 0; i <= X; i++) {
+        if (2 * i + (X - i) * 4 == Y) {
+            flag = true;
+        }
+    }
+
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
 
     return 0;
