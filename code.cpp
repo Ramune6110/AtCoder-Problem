@@ -1,4 +1,4 @@
-// ABC106A
+// ABC107A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,11 +20,10 @@ using namespace std;
 
 int main()
 {
-    int A, B;
-    cin >> A >> B;
+    int N, i;
+    cin >> N >> i;
 
-    int yard = (A - 1) * (B - 1);
-    cout << yard << endl;
+    cout << N - i + 1 << endl;
 
     return 0;
 }
