@@ -1,4 +1,4 @@
-// ABC174B
+// ABC178B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,24 +20,15 @@ using namespace std;
 
 int main()
 {
-    double N, D;
-    cin >> N >> D;
-
-    // int型の2次元配列(N * 2要素の)の宣言
-    vector<vector<int>> data(N, vector<int>(2));
-    for (int i = 0; i < N; i++) {
-        cin >> data.at(i).at(0) >> data.at(i).at(1);
-    }
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
     
-    double count = 0.0;
-    for (int i = 0; i < N; i++) {
-        double distance = sqrt(pow(data.at(i).at(0), 2.0) + pow(data.at(i).at(1), 2.0));
-        if (distance <= D) {
-            count++;
-        }
-    }
+    ll ans = a * c;
+    ans = max(ans, a * d);
+    ans = max(ans, b * c);
+    ans = max(ans, b * d);
 
-    cout << count << endl;
+    cout << ans << endl;
 
     return 0;
 }
