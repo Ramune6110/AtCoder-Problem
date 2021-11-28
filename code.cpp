@@ -1,4 +1,4 @@
-// ABC107A
+// ABC108A
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,10 +20,21 @@ using namespace std;
 
 int main()
 {
-    int N, i;
-    cin >> N >> i;
+    int K;
+    cin >> K;
 
-    cout << N - i + 1 << endl;
+    int even = 0;
+    int odd = 0;
+    for (int i = 1; i <= K; i++) {
+        if (i % 2 == 0) {
+            even++;
+        } else {
+            odd++;
+        }
+    }
+
+    int combination = even * odd;
+    cout << combination << endl;
 
     return 0;
 }
