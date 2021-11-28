@@ -1,4 +1,4 @@
-// ABC179B
+// ABC181B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,30 +20,19 @@ using namespace std;
 
 int main()
 {
-    int N;
+    ll N;
     cin >> N;
 
-    // int型の2次元配列(N×2要素の)の宣言
-    vector<vector<int>> data(N, vector<int>(2));
-    for (int i = 0; i < N; i++) {
-        cin >> data.at(i).at(0) >> data.at(i).at(1);
+    ll a, b;
+    ll ans = 0;
+    for (ll i = 0; i < N; i++) {
+        cin >> a >> b;
+        // 等差数列：和の公式
+        // https://rikeilabo.com/formula-list-of-arithmetic-progression
+        ans += ((b - a + 1) * (a + b)) / 2;
     }
 
-    bool flag = false;
-    for (int i = 0; i < N - 2; i++) {
-        if ((data.at(i).at(0) == data.at(i).at(1)) && 
-            (data.at(i + 1).at(0) == data.at(i + 1).at(1)) &&
-            (data.at(i + 2).at(0) == data.at(i + 2).at(1))) 
-        {
-            flag = true;
-        }
-    }
-
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << ans << endl;
 
     return 0;
 }
