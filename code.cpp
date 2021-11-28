@@ -1,4 +1,4 @@
-// ABC108A
+// ABC174B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -15,26 +15,29 @@
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define SIZE_OF_ARRAY(array) (sizeof(array)/sizeof(array[0]))
 
-using ll  = long long;
+using ll = long long;
 using namespace std;
 
 int main()
 {
-    int K;
-    cin >> K;
+    double N, D;
+    cin >> N >> D;
 
-    int even = 0;
-    int odd = 0;
-    for (int i = 1; i <= K; i++) {
-        if (i % 2 == 0) {
-            even++;
-        } else {
-            odd++;
+    // int型の2次元配列(N * 2要素の)の宣言
+    vector<vector<int>> data(N, vector<int>(2));
+    for (int i = 0; i < N; i++) {
+        cin >> data.at(i).at(0) >> data.at(i).at(1);
+    }
+    
+    double count = 0.0;
+    for (int i = 0; i < N; i++) {
+        double distance = sqrt(pow(data.at(i).at(0), 2.0) + pow(data.at(i).at(1), 2.0));
+        if (distance <= D) {
+            count++;
         }
     }
 
-    int combination = even * odd;
-    cout << combination << endl;
+    cout << count << endl;
 
     return 0;
 }
