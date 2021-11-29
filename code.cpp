@@ -1,4 +1,4 @@
-// ABC188B
+// ABC186B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,28 +20,32 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int H, W;
+    cin >> H >> W;
 
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
+    vector<vector<int>> data(H, vector<int>(W));
+    for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+            cin >> data.at(i).at(j);
+        }
     }
-    vector<int> B(N);
-    for (int i = 0; i < N; i++) {
-        cin >> B[i];
+    
+    // 2次元配列の最小値を求める方法
+    // 各行に対して min_element を繰り返す
+    // https://www.k-pmpstudy.com/entry/2019/08/27/cpp2Dmax
+    int MIN = INT_MAX;
+    for (int i = 0; i < H; ++i) {
+        MIN = min(MIN, (int)*min_element(data[i].begin(), data[i].end()));
     }
 
     int sum = 0;
-    for (int i = 0; i < N; i++) {
-        sum += A[i] * B[i];
+    for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+            sum += (data.at(i).at(j) - MIN);
+        }
     }
 
-    if (sum == 0) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << sum << endl;
 
     return 0;
 }
