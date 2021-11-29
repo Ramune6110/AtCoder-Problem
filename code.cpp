@@ -1,4 +1,4 @@
-// ABC186B
+// ABC191B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,32 +20,21 @@ using namespace std;
 
 int main()
 {
-    int H, W;
-    cin >> H >> W;
+    ll N, X;
+    cin >> N >> X;
 
-    vector<vector<int>> data(H, vector<int>(W));
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            cin >> data.at(i).at(j);
-        }
+    vector<ll> A(N);
+    for (ll i = 0; i < N; i++) {
+        cin >> A[i];
     }
+
+    // DELETES all elements with value "X"
+    // https://www.delftstack.com/ja/howto/cpp/remove-element-from-vector-cpp/
+    A.erase(std::remove(A.begin(), A.end(), X), A.end());
     
-    // 2次元配列の最小値を求める方法
-    // 各行に対して min_element を繰り返す
-    // https://www.k-pmpstudy.com/entry/2019/08/27/cpp2Dmax
-    int MIN = INT_MAX;
-    for (int i = 0; i < H; ++i) {
-        MIN = min(MIN, (int)*min_element(data[i].begin(), data[i].end()));
+    for (int i = 0; i < A.size(); i++) {
+        cout << A[i] << " ";
     }
-
-    int sum = 0;
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            sum += (data.at(i).at(j) - MIN);
-        }
-    }
-
-    cout << sum << endl;
 
     return 0;
 }
