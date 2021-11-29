@@ -1,4 +1,4 @@
-// ABC181B
+// ABC188B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,19 +20,28 @@ using namespace std;
 
 int main()
 {
-    ll N;
+    int N;
     cin >> N;
 
-    ll a, b;
-    ll ans = 0;
-    for (ll i = 0; i < N; i++) {
-        cin >> a >> b;
-        // 等差数列：和の公式
-        // https://rikeilabo.com/formula-list-of-arithmetic-progression
-        ans += ((b - a + 1) * (a + b)) / 2;
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+    vector<int> B(N);
+    for (int i = 0; i < N; i++) {
+        cin >> B[i];
     }
 
-    cout << ans << endl;
+    int sum = 0;
+    for (int i = 0; i < N; i++) {
+        sum += A[i] * B[i];
+    }
+
+    if (sum == 0) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
