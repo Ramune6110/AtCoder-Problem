@@ -1,4 +1,4 @@
-// ABC192B
+// ABC193B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,38 +20,41 @@ using namespace std;
 
 int main()
 {
-    string S;
-    cin >> S;
+    ll N;
+    cin >> N;
 
-    bool flag = false;
-    for (int i = 0; i < S.size(); i++) {
-        // 奇数のとき，小文字判定
-        // https://note.com/kazusasan/n/n0a3581ca0f23
-        if (i % 2 == 0) {
-            char c = S[i]; // https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
-            if (islower(c)) {
-                flag = true;
-            } else {
-                flag = false;
-                break;
-            }
+    vector<vector<ll>> data(N, vector<ll>(3));
+    for (ll i = 0; i < N; i++) {
+        for (ll j = 0; j < 3; j++) {
+            cin >> data.at(i).at(j);
+        }
+    }
+
+    ll ans = INT_MAX;
+    for (ll i = 0; i < N; i++) {
+        // 等差数列
+        // https://www.studyplus.jp/379
+        ll num = data.at(i).at(0) + 0.5;
+        // 小数点以下を求める
+        // https://qiita.com/truepoint1200612/items/5aaa9b3d646572143909
+        ll a = num - floor(num);
+        if (a >= 0.5) {
+            num = num + 1;
         } else {
-            // 偶数のとき，大文字判定
-            // https://note.com/kazusasan/n/n0a3581ca0f23
-            char c = S[i]; // https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
-            if (isupper(c)) {
-                flag = true;
-            } else {
-                flag = false;
-                break;
+            num = num - a;
+        }
+        if (data.at(i).at(2) - num > 0) {
+            ll value = data.at(i).at(1);
+            if (value < ans) {
+                ans = value;
             }
         }
     }
 
-    if (flag == true) {
-        cout << "Yes" << endl;
+    if (ans == INT_MAX) {
+        cout << "-1" << endl;
     } else {
-        cout << "No" << endl;
+        cout << ans << endl;
     }
 
     return 0;
