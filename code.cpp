@@ -1,4 +1,4 @@
-// ABC191B
+// ABC192B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,20 +20,38 @@ using namespace std;
 
 int main()
 {
-    ll N, X;
-    cin >> N >> X;
+    string S;
+    cin >> S;
 
-    vector<ll> A(N);
-    for (ll i = 0; i < N; i++) {
-        cin >> A[i];
+    bool flag = false;
+    for (int i = 0; i < S.size(); i++) {
+        // 奇数のとき，小文字判定
+        // https://note.com/kazusasan/n/n0a3581ca0f23
+        if (i % 2 == 0) {
+            char c = S[i]; // https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
+            if (islower(c)) {
+                flag = true;
+            } else {
+                flag = false;
+                break;
+            }
+        } else {
+            // 偶数のとき，大文字判定
+            // https://note.com/kazusasan/n/n0a3581ca0f23
+            char c = S[i]; // https://qiita.com/MasahiroBW/items/3f56b22a079cd3272cd3
+            if (isupper(c)) {
+                flag = true;
+            } else {
+                flag = false;
+                break;
+            }
+        }
     }
 
-    // DELETES all elements with value "X"
-    // https://www.delftstack.com/ja/howto/cpp/remove-element-from-vector-cpp/
-    A.erase(std::remove(A.begin(), A.end(), X), A.end());
-    
-    for (int i = 0; i < A.size(); i++) {
-        cout << A[i] << " ";
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
 
     return 0;
