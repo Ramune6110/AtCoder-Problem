@@ -1,4 +1,4 @@
-// ABC193B
+// ABC194B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,42 +20,27 @@ using namespace std;
 
 int main()
 {
-    ll N;
+    int N;
     cin >> N;
 
-    vector<vector<ll>> data(N, vector<ll>(3));
-    for (ll i = 0; i < N; i++) {
-        for (ll j = 0; j < 3; j++) {
-            cin >> data.at(i).at(j);
-        }
+    vector<int> A(N);
+    vector<int> B(N);
+    for (int i = 0; i < N; i++) {
+        cin >> A.at(i) >> B.at(i);
     }
 
-    ll ans = INT_MAX;
-    for (ll i = 0; i < N; i++) {
-        // 等差数列
-        // https://www.studyplus.jp/379
-        ll num = data.at(i).at(0) + 0.5;
-        // 小数点以下を求める
-        // https://qiita.com/truepoint1200612/items/5aaa9b3d646572143909
-        ll a = num - floor(num);
-        if (a >= 0.5) {
-            num = num + 1;
-        } else {
-            num = num - a;
-        }
-        if (data.at(i).at(2) - num > 0) {
-            ll value = data.at(i).at(1);
-            if (value < ans) {
-                ans = value;
+    int ans = 1e9+7;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (i == j) {
+                ans = min(ans, A.at(i) + B.at(j));
+            } else {
+                ans = min(ans, max(A.at(i), B.at(j)));
             }
         }
     }
 
-    if (ans == INT_MAX) {
-        cout << "-1" << endl;
-    } else {
-        cout << ans << endl;
-    }
+    cout << ans << endl;
 
     return 0;
 }
