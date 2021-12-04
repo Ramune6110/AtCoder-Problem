@@ -1,4 +1,4 @@
-// ABC206B
+// ABC205B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -23,17 +23,28 @@ int main()
     ll N;
     cin >> N;
 
-    ll sum = 0;
-    ll data = 0;
+    vector<ll> A(N);
+    for (ll i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+
+    bool flag = false;
+    //昇順ソート
+    sort(A.begin(),A.end());
     for (ll i = 1; i <= N; i++) {
-        sum += i;
-        if (sum >= N) {
-            data = i;
+        if (A[i - 1] == i) {
+            flag = true;
+        } else {
+            flag = false;
             break;
         }
     }
 
-    cout << data << endl;
+    if (flag == true) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 
     return 0;
 }
