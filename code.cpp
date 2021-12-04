@@ -1,4 +1,4 @@
-// ABC205B
+// ABC204B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,31 +20,22 @@ using namespace std;
 
 int main()
 {
-    ll N;
+    int N;
     cin >> N;
 
-    vector<ll> A(N);
-    for (ll i = 0; i < N; i++) {
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
         cin >> A[i];
     }
 
-    bool flag = false;
-    //昇順ソート
-    sort(A.begin(),A.end());
-    for (ll i = 1; i <= N; i++) {
-        if (A[i - 1] == i) {
-            flag = true;
-        } else {
-            flag = false;
-            break;
+    int sum = 0;
+    for (int i = 0; i < N; i++) {
+        if (A[i] > 10) {
+            sum += A[i] - 10;
         }
     }
 
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << sum << endl;
 
     return 0;
 }
