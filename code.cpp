@@ -1,4 +1,4 @@
-// ABC199B
+// ABC206B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,31 +20,20 @@ using namespace std;
 
 int main()
 {
-    int N;
+    ll N;
     cin >> N;
 
-    vector<int> A(N);
-    for (int i = 0; i < N; i++) {
-        cin >> A[i];
+    ll sum = 0;
+    ll data = 0;
+    for (ll i = 1; i <= N; i++) {
+        sum += i;
+        if (sum >= N) {
+            data = i;
+            break;
+        }
     }
-    vector<int> B(N);
-    for (int i = 0; i < N; i++) {
-        cin >> B[i];
-    }
- 
-    int max_A = *max_element(A.begin(), A.end());
-    int min_B = *min_element(B.begin(), B.end());
 
-    int sum = 0;
-    if (max_A == min_B) {
-        sum = 1;
-    } else if (max_A > min_B) {
-        sum = 0;
-    } else {
-        sum = min_B - max_A + 1;
-    }
-    
-    cout << sum << endl;
+    cout << data << endl;
 
     return 0;
 }
