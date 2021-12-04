@@ -1,4 +1,4 @@
-// ABC204B
+// ABC201B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -23,19 +23,29 @@ int main()
     int N;
     cin >> N;
 
-    vector<int> A(N);
+    vector<string> S(N);
+    vector<int> T(N);
+    vector<int> dammy_T(N);
     for (int i = 0; i < N; i++) {
-        cin >> A[i];
+        cin >> S[i] >> T[i];
+        dammy_T[i] = T[i];
     }
 
-    int sum = 0;
-    for (int i = 0; i < N; i++) {
-        if (A[i] > 10) {
-            sum += A[i] - 10;
-        }
+    // 降順ソート
+    // http://7ujm.net/stl/sort.html
+    sort(T.begin(),T.end(),greater<int>());
+    
+    // 特定の要素のindexを取得
+    // https://www.cns.s.u-tokyo.ac.jp/~masuoka/post/search_vector_index/
+    std::vector<int>::iterator itr;
+    const int wanted = T[1]; // 2に対応するindex(この例では1)を取って来たい
+    itr = std::find(dammy_T.begin(), dammy_T.end(), wanted);
+    if (itr == dammy_T.end()) {
+        std::cout << "search failed" << std::endl;
     }
+    const int wanted_index = std::distance(dammy_T.begin(), itr);
 
-    cout << sum << endl;
-
+    cout << S[wanted_index] << endl;
+    
     return 0;
 }
