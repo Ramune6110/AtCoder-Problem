@@ -1,4 +1,4 @@
-// ABC209B
+// ABC210B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,28 +20,23 @@ using namespace std;
 
 int main()
 {
-    int N, X;
-    cin >> N >> X;
+    int N;
+    cin >> N;
 
-    vector<int> A(N);
-    for (int i = 1; i <= N; i++) {
-        cin >> A[i - 1];
-    }
+    string S;
+    cin >> S;
 
-    int sum = 0;
     for (int i = 1; i <= N; i++) {
         if (i % 2 == 0) {
-            sum += (A[i - 1] - 1);
+            if (S[i - 1] == '1') {
+                cout << "Aoki" << endl;
+                return 0;
+            }
         } else {
-            sum += A[i - 1];
+            if (S[i - 1] == '1') {
+                cout << "Takahashi" << endl;
+                return 0;
+            }
         }
     }
-
-    if (sum <= X) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-
-    return 0;
 }
