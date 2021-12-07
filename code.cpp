@@ -1,4 +1,4 @@
-// ABC201B
+// ABC209B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,32 +20,28 @@ using namespace std;
 
 int main()
 {
-    int N;
-    cin >> N;
+    int N, X;
+    cin >> N >> X;
 
-    vector<string> S(N);
-    vector<int> T(N);
-    vector<int> dammy_T(N);
-    for (int i = 0; i < N; i++) {
-        cin >> S[i] >> T[i];
-        dammy_T[i] = T[i];
+    vector<int> A(N);
+    for (int i = 1; i <= N; i++) {
+        cin >> A[i - 1];
     }
 
-    // 降順ソート
-    // http://7ujm.net/stl/sort.html
-    sort(T.begin(),T.end(),greater<int>());
-    
-    // 特定の要素のindexを取得
-    // https://www.cns.s.u-tokyo.ac.jp/~masuoka/post/search_vector_index/
-    std::vector<int>::iterator itr;
-    const int wanted = T[1]; // 2に対応するindex(この例では1)を取って来たい
-    itr = std::find(dammy_T.begin(), dammy_T.end(), wanted);
-    if (itr == dammy_T.end()) {
-        std::cout << "search failed" << std::endl;
+    int sum = 0;
+    for (int i = 1; i <= N; i++) {
+        if (i % 2 == 0) {
+            sum += (A[i - 1] - 1);
+        } else {
+            sum += A[i - 1];
+        }
     }
-    const int wanted_index = std::distance(dammy_T.begin(), itr);
 
-    cout << S[wanted_index] << endl;
-    
+    if (sum <= X) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+
     return 0;
 }
