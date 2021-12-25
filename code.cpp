@@ -1,4 +1,4 @@
-// ABC216B
+// ABC214B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,29 +20,21 @@ using namespace std;
 
 int main()
 {   
-    int N;
-    cin >> N;
+    int S, T;
+    cin >> S >> T;
 
-    vector<string> S(N);
-    vector<string> T(N);
-    for (int i = 0; i < N; i++) {
-        cin >> S[i] >> T[i];
-    }
- 
-    bool flag = false;
-    for (int i = 0; i < N - 1; i++) {
-        for (int j = i + 1; j < N; j++) {
-            if (S[i] == S[j] && T[i] == T[j]) {
-                flag = true;
+    int ans = 0;
+    for (int a = 0; a <= S; a++) {
+        for (int b = 0; a + b <= S; b++) {
+            for (int c = 0; a + b + c <= S; c++) {
+                if (a * b * c <= T) {
+                    ans++;
+                }
             }
         }
     }
 
-    if (flag == true) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << ans << endl;
 
     return 0;
 }
