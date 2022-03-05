@@ -1,4 +1,4 @@
-// ABC214B
+// ABC217B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,21 +20,25 @@ using namespace std;
 
 int main()
 {   
-    int S, T;
-    cin >> S >> T;
+    vector<string> AtCoder = {"ABC", "ARC", "AGC", "AHC"};
 
-    int ans = 0;
-    for (int a = 0; a <= S; a++) {
-        for (int b = 0; a + b <= S; b++) {
-            for (int c = 0; a + b + c <= S; c++) {
-                if (a * b * c <= T) {
-                    ans++;
-                }
+    vector<string> S(3);
+    for (int i = 0; i < 3; i++) {
+        cin >> S[i];
+    }
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (S[i] == AtCoder[j]) {
+                AtCoder[j] = "existence";
             }
         }
     }
 
-    cout << ans << endl;
-
-    return 0;
+    for (int i = 0; i < 4; i++) {
+        if (AtCoder[i] != "existence") {
+            cout << AtCoder[i] << endl;
+            return 0;
+        }
+    }
 }
