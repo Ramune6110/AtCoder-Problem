@@ -1,4 +1,4 @@
-// ABC217B
+// ABC218B
 #include <bits/stdc++.h>
 #include <iostream>
 #include <cstring>
@@ -20,25 +20,17 @@ using namespace std;
 
 int main()
 {   
-    vector<string> AtCoder = {"ABC", "ARC", "AGC", "AHC"};
-
-    vector<string> S(3);
-    for (int i = 0; i < 3; i++) {
-        cin >> S[i];
+    vector<int> P(26);
+    for (int i = 0; i < 26; i++) {
+        cin >> P[i];
     }
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (S[i] == AtCoder[j]) {
-                AtCoder[j] = "existence";
-            }
-        }
+    for (int i = 0; i < 26; i++) {
+        // C++ 辞書順でi番目の文字を求める
+        // https://zenn.dev/honeycom/articles/e046d515b7962f
+        cout << (char)('a' + P[i] - 1);
     }
+    cout << endl;
 
-    for (int i = 0; i < 4; i++) {
-        if (AtCoder[i] != "existence") {
-            cout << AtCoder[i] << endl;
-            return 0;
-        }
-    }
+    return 0;
 }
